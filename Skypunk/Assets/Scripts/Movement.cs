@@ -56,13 +56,8 @@ public class Movement : MonoBehaviour
                 Destroy(i.gameObject);
             }
 
-            foreach (Transform i in scene.transform)
-            {
-                float moveX = i.position.x;
-                float moveY = i.position.y - 3f;
-
-                i.position = new Vector3(moveX, moveY);
-            }
+            oldPos = new Vector3(oldPos.x, oldPos.y + 3f);
+            cam.transform.position = new Vector3(cam.transform.position.x, cam.transform.position.y + 3f);
         }
         else
         {
