@@ -18,6 +18,7 @@ public class Movement : MonoBehaviour
     void Start()
     {
         oldPos = transform.position;
+        Debug.Log(Vector3.Distance(transform.position, scene.transform.GetChild(6).position));
     }
 
     // Update is called once per frame
@@ -50,14 +51,17 @@ public class Movement : MonoBehaviour
                 }
             }
 
-            Collider[] deleteCollider2D = Physics.OverlapBox(transform.position, new Vector2(50f, 2f), Quaternion.Euler(0, 0, 0), layerMask);
+            Collider[] deleteCollider2D = Physics.OverlapBox(transform.position, new Vector2(50f, 1f), Quaternion.Euler(0, 0, 0), layerMask);
             foreach (Collider i in deleteCollider2D)
             {
                 Destroy(i.gameObject);
             }
 
-            oldPos = new Vector3(oldPos.x, oldPos.y + 3f);
-            cam.transform.position = new Vector3(cam.transform.position.x, cam.transform.position.y + 3f);
+            foreach (Transform i in scene.transform)
+            {
+                if (Vector3.Distance(i.position, transform.position) > 3.1f)
+                    i.position = new Vector3(i.position.x, i.position.y - 3f);
+            }
         }
         else
         {
