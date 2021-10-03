@@ -5,9 +5,13 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     Vector3 oldPos;
+    Vector3 oldPosCam;
+    Collider collider;
+    SpriteRenderer oldCollider;
+
     [SerializeField] private Camera cam;
     [SerializeField] private LayerMask layerMask;
-    [SerializeField] private GameObject scene;
+    //[SerializeField] private Scene scene;
 
     public float radius = 0.1f;
     public float speed = 0.5f;
@@ -18,7 +22,7 @@ public class Movement : MonoBehaviour
     void Start()
     {
         oldPos = transform.position;
-        Debug.Log(Vector3.Distance(transform.position, scene.transform.GetChild(6).position));
+        oldPosCam = cam.transform.position;
     }
 
     // Update is called once per frame
@@ -36,36 +40,65 @@ public class Movement : MonoBehaviour
             float nowPosY = nowPos.y;
 
             transform.position = new Vector3(nowPosX, nowPosY);
-        } else if (Physics.CheckSphere(transform.position, radius, layerMask) && Input.GetMouseButtonUp(0)) 
-        {
-            Collider[] collider2D = Physics.OverlapSphere(transform.position, radius, layerMask);
-            float minDist = 100f;
 
-            foreach (Collider i in collider2D)
+            collider = GetCollider();
+            if (collider != null)
             {
-                float dist = Vector3.Distance(transform.position, i.transform.position);
-                if (dist < minDist)
-                {
-                    Debug.Log(i.transform.gameObject.name);
-                    minDist = dist;
-                }
+                int countChild = collider.gameObject.transform.childCount;
+
+                collider.transform.GetChild(countChild - 1).gameObject.GetComponent<SpriteRenderer>().enabled = true;
+                oldCollider = collider.transform.GetChild(countChild - 1).gameObject.GetComponent<SpriteRenderer>();
+
+                collider = null;
+            } else if (oldCollider != null)
+            {
+                oldCollider.enabled = false;
+                oldCollider = null;
             }
 
-            Collider[] deleteCollider2D = Physics.OverlapBox(transform.position, new Vector2(50f, 1f), Quaternion.Euler(0, 0, 0), layerMask);
+        } else if (Physics.CheckSphere(transform.position, radius, layerMask) && Input.GetMouseButtonUp(0)) 
+        {
+            collider = GetCollider();
+
+            oldPos = collider.transform.position;
+            oldPosCam.y = oldPosCam.y + 142.5f;
+
+            Destroy(collider);
+
+            Collider[] deleteCollider2D = Physics.OverlapBox(transform.position, new Vector2(500f, 2f), Quaternion.Euler(0, 0, 0), layerMask);
             foreach (Collider i in deleteCollider2D)
             {
                 Destroy(i.gameObject);
             }
 
-            foreach (Transform i in scene.transform)
-            {
-                if (Vector3.Distance(i.position, transform.position) > 3.1f)
-                    i.position = new Vector3(i.position.x, i.position.y - 3f);
-            }
         }
         else
         {
             transform.position = Vector3.MoveTowards(transform.position, oldPos, speed);
+            cam.transform.position = Vector3.MoveTowards(cam.transform.position, oldPosCam, speed);
         }
+    }
+
+    private Collider GetCollider()
+    {
+        Collider[] colliderList = Physics.OverlapBox(transform.position, new Vector2(500f, 2f), Quaternion.Euler(0, 0, 0), layerMask);
+        float minDist = 100f;
+
+        Collider coll = new Collider();
+
+        foreach (Collider i in colliderList)
+        {
+            float dist = Vector3.Distance(transform.position, i.transform.position);
+            int count = i.gameObject.transform.childCount;
+            i.transform.GetChild(count - 1).gameObject.GetComponent<SpriteRenderer>().enabled = false;
+
+            if (dist < minDist)
+            {
+                coll = i;
+                minDist = dist;
+            }
+        }
+
+        return coll;
     }
 }
