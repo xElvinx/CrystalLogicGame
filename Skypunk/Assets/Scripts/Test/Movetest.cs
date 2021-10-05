@@ -1,4 +1,4 @@
-using System.Collections;
+using System.Threading;
 using System.Collections.Generic;
 using UnityEngine;
 using DragonBones;
@@ -6,6 +6,7 @@ using DragonBones;
 public class Movetest : MonoBehaviour
 {
     private UnityArmatureComponent player;
+    [SerializeField] private ParticleSystem ps;
 
     void Start()
     {
@@ -19,12 +20,10 @@ public class Movetest : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             player.animation.Play(("Attack"));
-        } else if (Input.GetAxis("Horizontal") != 0f)
-        {
-            player.animation.Play(("run"));
-        } else
-        {
-            player.animation.Play(("idle"));
+
+            ps.Play();
+            Thread.Sleep(1000);
+            ps.Stop();
         }
     }
 }
