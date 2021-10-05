@@ -14,7 +14,7 @@ public class Movetest : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         Debug.Log(Input.GetMouseButton(0));
         if (Input.GetMouseButtonDown(0))
@@ -22,8 +22,6 @@ public class Movetest : MonoBehaviour
             player.animation.Play(("Attack"));
 
             ps.Play();
-            Thread.Sleep(1000);
-            ps.Stop();
         }
     }
 }
