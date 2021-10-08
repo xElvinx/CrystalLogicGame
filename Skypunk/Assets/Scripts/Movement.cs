@@ -11,7 +11,7 @@ public class Movement : MonoBehaviour
 
     [SerializeField] private Camera cam;
     [SerializeField] private LayerMask layerMask;
-    //[SerializeField] private Scene scene;
+    [SerializeField] private SceneController scene;
 
     public float radius = 0.1f;
     public float speed = 0.5f;
@@ -63,6 +63,8 @@ public class Movement : MonoBehaviour
             oldPos = collider.transform.position;
             oldPosCam.y = oldPosCam.y + 142.5f;
 
+            Debug.Log(collider.gameObject.name);
+            scene.UseCard(collider.gameObject);
             Destroy(collider);
 
             Collider[] deleteCollider2D = Physics.OverlapBox(transform.position, new Vector2(500f, 2f), Quaternion.Euler(0, 0, 0), layerMask);

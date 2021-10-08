@@ -6,25 +6,33 @@ using UnityEngine.UI;
 
 public class SceneController : MonoBehaviour
 {
+    public List<int> lootList = new List<int>() { 0, 0, 0, 0, 0, 0 };
+    public int fuel = 10;
+    public int maxFuel = 10;
+
     public float health = 5f;
     [SerializeField] private Text healthText;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void UseCard(GameObject card)
     {
-        DataCard dataCard = card.GetComponent<DataCard>();
-
+        DataCard dataCard = card.GetComponent<Card>().dataCard;
+        fuel -= 1;
         switch (dataCard.card)
         {
-            case 0:
+            case DataCard.classCard.Enemy:
                 health -= dataCard.Damage;
                 healthText.text = Convert.ToString(health);
                 break;
+
+            case DataCard.classCard.Search:
+                lootList = card.GetComponent<Card>().GetLoot(lootList);
+                break;
+
+            case DataCard.classCard.Fuel:
+                if (fuel < 10)
+                    fuel = card.GetComponent<Card>().GetFuel(fuel);
+                break;
         }
+        Debug.Log(fuel);
     }
 }
