@@ -7,6 +7,10 @@ using UnityEngine.UI;
 public class SceneController : MonoBehaviour
 {
     public List<int> lootList = new List<int>() { 0, 0, 0, 0, 0, 0 };
+    public List<int> rareItemsList = new List<int>() { 0, 0, 0 };
+    public List<int> legendaryItemsList = new List<int>() { 0, 0, 0 };
+
+    public List<int> weaponList = new List<int>();
     public int fuel = 10;
     public int maxFuel = 10;
 
