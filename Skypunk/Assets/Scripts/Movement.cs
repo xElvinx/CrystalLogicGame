@@ -23,19 +23,22 @@ public class Movement : MonoBehaviour
     {
         oldPos = transform.position;
         oldPosCam = cam.transform.position;
+
+        Debug.Log(cam.WorldToScreenPoint(transform.position));
+        Debug.Log(transform.lossyScale);
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector3 scale = new Vector3(transform.position.x, transform.position.y);
-        Vector2 nowPos = cam.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 scale = cam.WorldToScreenPoint(transform.position);
+        Vector2 nowPos = Input.mousePosition;
 
         if (Input.GetKey(KeyCode.Mouse0) &&
-            nowPos.x < scale.x + transform.localScale.x / 2 && nowPos.x > scale.x - transform.localScale.x / 2 &&
-            nowPos.y < scale.y + transform.localScale.y / 2 && nowPos.y > scale.y - transform.localScale.y / 2)
+            nowPos.x < scale.x + transform.lossyScale.x / 2 && nowPos.x > scale.x - transform.lossyScale.x / 2 &&
+            nowPos.y < scale.y + transform.lossyScale.y / 2 && nowPos.y > scale.y - transform.lossyScale.y / 2)
         {
-
+            nowPos = cam.ScreenToWorldPoint(nowPos);
             float nowPosX = nowPos.x;
             float nowPosY = nowPos.y;
 
