@@ -23,9 +23,6 @@ public class Movement : MonoBehaviour
     {
         oldPos = transform.position;
         oldPosCam = cam.transform.position;
-
-        Debug.Log(cam.WorldToScreenPoint(transform.position));
-        Debug.Log(transform.lossyScale);
     }
 
     // Update is called once per frame
@@ -66,7 +63,6 @@ public class Movement : MonoBehaviour
             oldPos = collider.transform.position;
             oldPosCam.y = oldPosCam.y + 142.5f;
 
-            Debug.Log(collider.gameObject.name);
             scene.UseCard(collider.gameObject);
             Destroy(collider);
 

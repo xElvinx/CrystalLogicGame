@@ -10,5 +10,6 @@ public class DataCard : ScriptableObject
     public classCard card;
     
     public float Damage;
-    public Text DamageText;
+    public string IventText;
+    public string IventHeader;
 }
