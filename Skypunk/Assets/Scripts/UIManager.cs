@@ -26,4 +26,5 @@ public class UIManager : MonoBehaviour
         }
     }
 }
-// test
+
+// тест 2
