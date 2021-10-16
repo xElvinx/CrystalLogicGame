@@ -23,7 +23,7 @@ public class UIButtons : MonoBehaviour
 
     public void ClosePanel(Transform child)
     {
-        child.parent.gameObject.SetActive(false);
+        #child.parent.gameObject.SetActive(false);
     }
 
 }
