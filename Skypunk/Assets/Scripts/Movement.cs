@@ -29,11 +29,12 @@ public class Movement : MonoBehaviour
     void Update()
     {
         Vector3 scale = cam.WorldToScreenPoint(transform.position);
+        Vector3 lossyScale = transform.lossyScale;
         Vector2 nowPos = Input.mousePosition;
 
         if (Input.GetKey(KeyCode.Mouse0) &&
-            nowPos.x < scale.x + transform.lossyScale.x / 2 && nowPos.x > scale.x - transform.lossyScale.x / 2 &&
-            nowPos.y < scale.y + transform.lossyScale.y / 2 && nowPos.y > scale.y - transform.lossyScale.y / 2)
+            (nowPos.x < scale.x + lossyScale.x || nowPos.x > scale.x - lossyScale.x) &&
+            (nowPos.y < scale.y + lossyScale.y || nowPos.y > scale.y - lossyScale.y))
         {
             nowPos = cam.ScreenToWorldPoint(nowPos);
             float nowPosX = nowPos.x;
