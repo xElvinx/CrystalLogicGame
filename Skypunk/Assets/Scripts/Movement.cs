@@ -29,13 +29,14 @@ public class Movement : MonoBehaviour
     void Update()
     {
         Vector3 scale = cam.WorldToScreenPoint(transform.position);
-        Vector3 lossyScale = transform.lossyScale;
+        Vector3 lossyScale = transform.lossyScale * 3.5f;
         Vector2 nowPos = Input.mousePosition;
 
         if (Input.GetKey(KeyCode.Mouse0) &&
-            (nowPos.x < scale.x + lossyScale.x || nowPos.x > scale.x - lossyScale.x) &&
-            (nowPos.y < scale.y + lossyScale.y || nowPos.y > scale.y - lossyScale.y))
+            (nowPos.x < scale.x + lossyScale.x && nowPos.x > scale.x - lossyScale.x) &&
+            (nowPos.y < scale.y + lossyScale.y && nowPos.y > scale.y - lossyScale.y))
         {
+
             nowPos = cam.ScreenToWorldPoint(nowPos);
             float nowPosX = nowPos.x;
             float nowPosY = nowPos.y;
@@ -43,7 +44,7 @@ public class Movement : MonoBehaviour
             transform.position = new Vector3(nowPosX, nowPosY);
 
             collider = GetCollider();
-            if (collider != null)
+            if (collider != null && transform.position.x - oldPos.x < 300f)
             {
                 int countChild = collider.gameObject.transform.childCount;
 
@@ -57,22 +58,18 @@ public class Movement : MonoBehaviour
                 oldCollider = null;
             }
 
-        } else if (Physics.CheckSphere(transform.position, radius, layerMask) && Input.GetMouseButtonUp(0)) 
+        } else if (Physics.CheckSphere(transform.position, radius, layerMask) && Input.GetMouseButtonUp(0) && transform.position.x - oldPos.x < 300f) 
         {
             collider = GetCollider();
 
+            oldPosCam.y = oldPosCam.y + collider.transform.position.y - oldPos.y;
             oldPos = collider.transform.position;
-            oldPosCam.y = oldPosCam.y + 142.5f;
+
+            AudioSource clipAudio = transform.GetComponent<AudioSource>();
+            clipAudio.clip = collider.gameObject.GetComponent<AudioSource>().clip;
+            clipAudio.Play();
 
             scene.UseCard(collider.gameObject);
-            Destroy(collider);
-
-            Collider[] deleteCollider2D = Physics.OverlapBox(transform.position, new Vector2(500f, 2f), Quaternion.Euler(0, 0, 0), layerMask);
-            foreach (Collider i in deleteCollider2D)
-            {
-                Destroy(i.gameObject);
-            }
-
         }
         else
         {

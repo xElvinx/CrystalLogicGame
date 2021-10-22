@@ -16,16 +16,14 @@ public class Card : MonoBehaviour
     [SerializeField] private Text textDamage;
     [SerializeField] private Transform panelIvent;
     [SerializeField] private DataIvent Ivent;
+    [SerializeField] private GameObject search;
     void Start()
     {
         if (dataCard.card == DataCard.classCard.Enemy)
         {
-            Damage = Random.Range(1, 5);
-            Debug.Log(Damage);
+            Damage = Random.Range(dataCard.minDamage, dataCard.maxDamage);
             textDamage.text = System.Convert.ToString(Damage);
         }
-        else
-            dataCard.Damage = 0;
 
         if (Ivent != null)
         {
@@ -33,17 +31,16 @@ public class Card : MonoBehaviour
             text = panelIvent.GetChild(2).GetComponent<Text>();
             VarA = panelIvent.GetChild(3).GetChild(0).GetComponent<Text>();
             VarB = panelIvent.GetChild(4).GetChild(0).GetComponent<Text>();
-            Debug.Log(gameObject.name);
         }
     }
 
-    public List<int> GetLoot(List<int> list)
+    public Dictionary<string, int> GetLoot(Dictionary<string, int> list)
     {
-        if (Random.Range(0, 100) < 80)
+        if (Random.Range(0, 100) < 50)
         {
-            int count = Random.Range(1, 4);
+            search.GetComponent<Search>().Restart();
+            search.SetActive(true);
 
-            list[Random.Range(1, 5)] += count; // 1 - 5 перечисляемые ресурсы (ткань, металл и т.д.)
         } else if (Ivent != null)
         {
             header.text = Ivent.TextHeader;

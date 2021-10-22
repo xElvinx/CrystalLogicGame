@@ -6,7 +6,8 @@ using UnityEngine.UI;
 
 public class SceneController : MonoBehaviour
 {
-    public List<int> lootList = new List<int>() { 0, 0, 0, 0, 0, 0 };
+    public Dictionary<string, int> lootList = new Dictionary<string, int>() { { "GAS", 0 }, { "METAL", 0 }, { "SUPPLIES", 0 },
+                                                                              { "PETROLEUM", 0 }, { "CHEMICALS", 0 }, { "CLOTH", 0 } };
     public List<int> rareItemsList = new List<int>() { 0, 0, 0 };
     public List<int> legendaryItemsList = new List<int>() { 0, 0, 0 };
 
@@ -22,6 +23,13 @@ public class SceneController : MonoBehaviour
 
     void Update()
     {
+        if (health <= 0 || fuel <= 0)
+        {
+            health = 0;
+            UIButtons uIButtons = new UIButtons();
+            uIButtons.Restart();
+        }
+
         healthText.text = Convert.ToString(health);
         ironText.text = Convert.ToString(iron);
     }
@@ -40,9 +48,6 @@ public class SceneController : MonoBehaviour
                     else
                         health -= 1;
                 }
-
-                healthText.text = Convert.ToString(health);
-                ironText.text = Convert.ToString(iron);
                 break;
 
             case DataCard.classCard.Search:
@@ -54,5 +59,11 @@ public class SceneController : MonoBehaviour
                     fuel = card.GetComponent<Card>().GetFuel(fuel);
                 break;
         }
+
+        foreach (Transform i in card.transform.parent.parent.GetChild(1))
+        {
+            i.gameObject.layer = 6;
+        }
+        Destroy(card.transform.parent.gameObject);
     }
 }

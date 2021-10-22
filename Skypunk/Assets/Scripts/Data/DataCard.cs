@@ -9,7 +9,8 @@ public class DataCard : ScriptableObject
     public enum classCard {Enemy, Fuel, Search};
     public classCard card;
     
-    public float Damage;
+    public int minDamage;
+    public int maxDamage;
     public string IventText;
     public string IventHeader;
 }
