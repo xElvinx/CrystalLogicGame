@@ -9,6 +9,7 @@ TagManager:
   - VarA
   - VarB
   - Floors
+  - Money
   layers:
   - Default
   - TransparentFX

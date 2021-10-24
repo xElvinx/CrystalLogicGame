@@ -56,7 +56,7 @@ public class Card : MonoBehaviour
 
     public int GetFuel(int fuel)
     {
-        fuel += Random.Range(3, 4);
+        fuel += Random.Range(3, 6);
         return fuel;
     }
 }

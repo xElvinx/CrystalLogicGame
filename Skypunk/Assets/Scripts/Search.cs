@@ -111,7 +111,16 @@ public class Search : MonoBehaviour
                 panel.GetChild(1).GetComponent<Text>().text = dataLoot.Name;
                 panel.GetChild(2).GetComponent<Text>().text = kolvo.ToString();
 
-                controller.lootList[dataLoot.Name] += kolvo;
+
+                if (!controller.lootList.ContainsKey(dataLoot.Name))
+                {
+                    controller.lootList.Add(dataLoot.Name, kolvo);
+                }
+                else
+                {
+                    Debug.Log(dataLoot.Name);
+                    controller.lootList[dataLoot.Name] += kolvo;
+                }
             } else
             {
                 panel.GetChild(0).GetComponent<Image>().sprite = dictImg[0];

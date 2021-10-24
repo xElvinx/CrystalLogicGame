@@ -1,10 +1,10 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Audio;
 using OneClickLocalization.Core;
-
+[Serializable]
 public class UIOption : MonoBehaviour
 {
     [SerializeField] private Text SoundTxt;
@@ -39,11 +39,14 @@ public class UIOption : MonoBehaviour
     {
         /*localization.defaultLanguage = SystemLanguage.English;
         localization.SetDefaultLanguage(SystemLanguage.English);*/
+        localization.forcedLanguage = SystemLanguage.English;
     }
 
     public void RuLang()
     {
         /*localization.defaultLanguage = SystemLanguage.Russian;
         localization.SetDefaultLanguage(SystemLanguage.Russian);*/
+        //localization.Ru();
+        localization.forcedLanguage = SystemLanguage.Russian;
     }
 }

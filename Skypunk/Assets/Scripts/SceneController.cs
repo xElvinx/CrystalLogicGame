@@ -6,14 +6,11 @@ using UnityEngine.UI;
 
 public class SceneController : MonoBehaviour
 {
-    public Dictionary<string, int> lootList = new Dictionary<string, int>() { { "GAS", 0 }, { "METAL", 0 }, { "SUPPLIES", 0 },
-                                                                              { "PETROLEUM", 0 }, { "CHEMICALS", 0 }, { "CLOTH", 0 } };
-    public List<int> rareItemsList = new List<int>() { 0, 0, 0 };
-    public List<int> legendaryItemsList = new List<int>() { 0, 0, 0 };
+    public Dictionary<string, int> lootList = new Dictionary<string, int>();
 
-    public List<int> weaponList = new List<int>();
     public int fuel = 15;
     public int maxFuel = 20;
+    public int money = 0;
 
     public float health = 15f;
     [SerializeField] private Text healthText;

@@ -20,13 +20,33 @@ public class UIManager : MonoBehaviour
                 panelFuel.GetChild(i).gameObject.SetActive(false);
         }
 
-        int j = 0;
 
-        foreach (var i in sceneController.lootList)
+        if (Input.GetKey(KeyCode.Tab))
         {
-            panelLoot.GetChild(j).GetChild(1).GetComponent<Text>().text = Convert.ToString(sceneController.lootList[i.Key]);
-            j++;
+            int j = 0;
+            panelLoot.gameObject.SetActive(true);
+
+            foreach (var i in sceneController.lootList)
+            {
+                if (i.Value > 0)
+                {
+                    DataLoot dataLoot = Resources.Load<DataLoot>("ScriptableObjects/Loot/" + i.Key);
+
+                    //panelLoot.GetChild(j).gameObject.SetActive(true);
+                    panelLoot.GetChild(j).GetComponent<Image>().sprite = dataLoot.img;
+                    panelLoot.GetChild(j).GetChild(0).GetComponent<Text>().text = i.Key;
+                    panelLoot.GetChild(j).GetChild(1).GetComponent<Text>().text = i.Value.ToString();
+                    j++;
+                }
+            }
+
+            Text money = GameObject.FindGameObjectWithTag("Money").GetComponent<Text>();
+            money.text = sceneController.money.ToString();
+        } else if (Input.GetKey(KeyCode.Escape))
+        {
+            panelLoot.gameObject.SetActive(false);
         }
+
     }
 }
 
