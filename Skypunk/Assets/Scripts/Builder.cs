@@ -37,7 +37,7 @@ public class Builder : MonoBehaviour
             if (i == 1)
                 gameObject.layer = 6;
 
-            if (i % 5 == 0)
+            if (i % (floorsCount / 2) == 0)
             {
                 BuildCourier(center, gameObject);
                 center = new Vector2(center.x, center.y + 6f);

@@ -17,12 +17,7 @@ public class UIOption : MonoBehaviour
 
     [SerializeField] private AudioMixer audio;
 
-    [SerializeField] private LocalizationSetup localization;
-
-    private void Awake()
-    {
-        Debug.Log(Time.time);
-    }
+    [SerializeField] private MultiLanguage localization;
 
     void Update()
     {
@@ -39,7 +34,7 @@ public class UIOption : MonoBehaviour
     {
         /*localization.defaultLanguage = SystemLanguage.English;
         localization.SetDefaultLanguage(SystemLanguage.English);*/
-        localization.forcedLanguage = SystemLanguage.English;
+        //localization.forcedLanguage = SystemLanguage.English;
     }
 
     public void RuLang()
@@ -47,6 +42,7 @@ public class UIOption : MonoBehaviour
         /*localization.defaultLanguage = SystemLanguage.Russian;
         localization.SetDefaultLanguage(SystemLanguage.Russian);*/
         //localization.Ru();
-        localization.forcedLanguage = SystemLanguage.Russian;
+        //localization.forcedLanguage = SystemLanguage.Russian;
+
     }
 }

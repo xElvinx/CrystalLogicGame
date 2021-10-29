@@ -112,14 +112,13 @@ public class Search : MonoBehaviour
                 panel.GetChild(2).GetComponent<Text>().text = kolvo.ToString();
 
 
-                if (!controller.lootList.ContainsKey(dataLoot.Name))
+                if (!controller.lootList.ContainsKey(dataLoot.name))
                 {
-                    controller.lootList.Add(dataLoot.Name, kolvo);
+                    controller.lootList.Add(dataLoot.name, kolvo);
                 }
                 else
                 {
-                    Debug.Log(dataLoot.Name);
-                    controller.lootList[dataLoot.Name] += kolvo;
+                    controller.lootList[dataLoot.name] += kolvo;
                 }
             } else
             {

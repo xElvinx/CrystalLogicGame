@@ -13313,16 +13313,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1226750371}
-        m_TargetAssemblyTypeName: UIOption, Assembly-CSharp
-        m_MethodName: EuLang
-        m_Mode: 1
+      - m_Target: {fileID: 2116396716}
+        m_TargetAssemblyTypeName: MultiLanguage, Assembly-CSharp
+        m_MethodName: Language
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: English
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1112765547
@@ -15160,7 +15160,7 @@ MonoBehaviour:
   FXSlider: {fileID: 1965555257}
   MusicSlider: {fileID: 1326753113}
   audio: {fileID: 24100000, guid: 1dcf337911908ad4ca0b3fca97ea8b91, type: 2}
-  localization: {fileID: 11400000, guid: f03fc20d8ae2f27419637c8e5e1361ba, type: 2}
+  localization: {fileID: 0}
 --- !u!1 &1234392618
 GameObject:
   m_ObjectHideFlags: 0
@@ -27412,16 +27412,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1226750371}
-        m_TargetAssemblyTypeName: UIOption, Assembly-CSharp
-        m_MethodName: RuLang
-        m_Mode: 1
+      - m_Target: {fileID: 2116396716}
+        m_TargetAssemblyTypeName: MultiLanguage, Assembly-CSharp
+        m_MethodName: Language
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Russian
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &2020830587
