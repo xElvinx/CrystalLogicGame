@@ -14,8 +14,8 @@ public class Card : MonoBehaviour
     private Text VarB;
 
     [SerializeField] private Text textDamage;
-    [SerializeField] private DataIvent Ivent;
-
+    
+    public DataIvent Ivent;
     public Transform panelIvent;
     public GameObject search;
 

@@ -51,6 +51,8 @@ public class SceneController : MonoBehaviour
 
             case DataCard.classCard.Search:
                 lootList = card.GetComponent<Card>().GetLoot(lootList);
+                Debug.Log(Ivent.GetComponent<Ivent>().Ivents);
+                Ivent.GetComponent<Ivent>().Ivents = card.GetComponent<Card>().Ivent;
                 break;
 
             case DataCard.classCard.Fuel:
