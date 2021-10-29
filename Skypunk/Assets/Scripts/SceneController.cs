@@ -18,6 +18,8 @@ public class SceneController : MonoBehaviour
     public float iron = 5f;
     [SerializeField] private Text ironText;
 
+    public GameObject Ivent;
+
     void Update()
     {
         if (health <= 0 || fuel <= 0)

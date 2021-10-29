@@ -24,11 +24,19 @@ public class PanelLoot : MonoBehaviour
 
     public void SelectItem(Transform parent)
     {
-        string Name = parent.GetChild(0).GetComponent<Text>().text;
-        int Count = Convert.ToInt32(parent.GetChild(1).GetComponent<Text>().text);
+        int maxCount = 6;
 
-        parent.GetChild(3).gameObject.SetActive(true);
-        listLoot.Add(new Item() {index = parent.GetSiblingIndex(), nameItem = Name, countItem = Count });
+        if (isDelete)
+            maxCount = parent.parent.childCount;
+
+        if (!parent.GetChild(3).gameObject.activeSelf && listLoot.Count < maxCount)
+        {
+            string Name = parent.GetChild(0).GetComponent<Text>().text;
+            int Count = Convert.ToInt32(parent.GetChild(1).GetComponent<Text>().text);
+
+            parent.GetChild(3).gameObject.SetActive(true);
+            listLoot.Add(new Item() { index = parent.GetSiblingIndex(), nameItem = Name, countItem = Count });
+        }
     }
 
     public void Check()
@@ -39,7 +47,6 @@ public class PanelLoot : MonoBehaviour
         }
         else
         {
-            Debug.Log("Доставка: " + controller.lootList.Count);
             Delivery();
         }
     }
