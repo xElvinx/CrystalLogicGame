@@ -14,9 +14,11 @@ public class Card : MonoBehaviour
     private Text VarB;
 
     [SerializeField] private Text textDamage;
-    [SerializeField] private Transform panelIvent;
-    [SerializeField] public DataIvent Ivent; // Elvin's: private to public
-    [SerializeField] private GameObject search;
+    [SerializeField] private DataIvent Ivent;
+
+    public Transform panelIvent;
+    public GameObject search;
+
     void Start()
     {
         if (dataCard.card == DataCard.classCard.Enemy)
@@ -48,6 +50,7 @@ public class Card : MonoBehaviour
             VarA.text = Ivent.VarA;
             VarB.text = Ivent.VarB;
 
+            panelIvent.parent.gameObject.SetActive(true);
             panelIvent.gameObject.SetActive(true);
         }
 

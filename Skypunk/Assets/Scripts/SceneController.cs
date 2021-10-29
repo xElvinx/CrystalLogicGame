@@ -58,6 +58,11 @@ public class SceneController : MonoBehaviour
                 if (fuel < maxFuel)
                     fuel = card.GetComponent<Card>().GetFuel(fuel);
                 break;
+
+            case DataCard.classCard.Courier:
+                if (lootList.Count > 0)
+                    card.GetComponent<Courier>().Warning();
+                break;
         }
 
         foreach (Transform i in card.transform.parent.parent.GetChild(1))

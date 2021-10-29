@@ -13,6 +13,7 @@ public class Ivent : MonoBehaviour
 
     public void Close(GameObject gameObject)
     {
+        gameObject.transform.parent.gameObject.SetActive(false);
         gameObject.SetActive(false);
         panelIvent.GetChild(3).gameObject.SetActive(true);
         panelIvent.GetChild(4).gameObject.SetActive(true);

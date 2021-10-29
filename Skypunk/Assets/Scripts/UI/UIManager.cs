@@ -23,30 +23,49 @@ public class UIManager : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Tab))
         {
-            int j = 0;
-            panelLoot.gameObject.SetActive(true);
-
-            foreach (var i in sceneController.lootList)
-            {
-                if (i.Value > 0)
-                {
-                    DataLoot dataLoot = Resources.Load<DataLoot>("ScriptableObjects/Loot/" + i.Key);
-
-                    //panelLoot.GetChild(j).gameObject.SetActive(true);
-                    panelLoot.GetChild(j).GetComponent<Image>().sprite = dataLoot.img;
-                    panelLoot.GetChild(j).GetChild(0).GetComponent<Text>().text = i.Key;
-                    panelLoot.GetChild(j).GetChild(1).GetComponent<Text>().text = i.Value.ToString();
-                    j++;
-                }
-            }
-
-            Text money = GameObject.FindGameObjectWithTag("Money").GetComponent<Text>();
-            money.text = sceneController.money.ToString();
+            OpenPanel();
         } else if (Input.GetKey(KeyCode.Escape))
         {
             panelLoot.gameObject.SetActive(false);
         }
+    }
 
+    public void OpenPanel()
+    {
+        int j = 0;
+        panelLoot.gameObject.SetActive(true);
+        Transform panel = GameObject.FindGameObjectWithTag("LootList").transform;
+
+        foreach (var i in sceneController.lootList)
+        {
+            if (i.Value > 0)
+            {
+                DataLoot dataLoot = Resources.Load<DataLoot>("ScriptableObjects/Loot/" + i.Key);
+                
+                panel.GetChild(j).GetChild(0).GetComponent<Text>().text = i.Key;
+                panel.GetChild(j).GetChild(1).GetComponent<Text>().text = i.Value.ToString();
+
+                Image lootImg = panel.GetChild(j).GetChild(2).GetComponent<Image>();
+
+                lootImg.sprite = dataLoot.img;
+                lootImg.color = new Color(lootImg.color.r, lootImg.color.g, lootImg.color.b, 1);
+                j++;
+            }
+        }
+
+        for (int i = 0; i < panel.childCount; i++)
+        {
+            if (i >= sceneController.lootList.Count)
+            {
+                panel.GetChild(i).GetChild(0).GetComponent<Text>().text = "";
+                panel.GetChild(i).GetChild(1).GetComponent<Text>().text = "";
+                panel.GetChild(i).GetChild(2).GetComponent<Image>().color = new Color(255, 255, 255, 0);
+            }
+            panel.GetChild(i).GetChild(3).gameObject.SetActive(false);
+        }
+
+        Text money = GameObject.FindGameObjectWithTag("Money").GetComponent<Text>();
+        money.text = sceneController.money.ToString();
     }
 }
 

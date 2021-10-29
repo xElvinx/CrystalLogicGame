@@ -268,7 +268,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcd75dc6a312bdc44b36bdea7e7ff447, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dataCard: {fileID: 11400000, guid: d0772dbd92f2e6049929d741ebcba3a0, type: 2}
+  dataCard: {fileID: 0}
   Damage: 0
   textDamage: {fileID: 1242158583}
   panelIvent: {fileID: 0}
@@ -27050,7 +27050,7 @@ MonoBehaviour:
   FXSlider: {fileID: 1965555257}
   MusicSlider: {fileID: 1326753113}
   audio: {fileID: 24100000, guid: 1dcf337911908ad4ca0b3fca97ea8b91, type: 2}
-  localization: {fileID: 11400000, guid: f03fc20d8ae2f27419637c8e5e1361ba, type: 2}
+  localization: {fileID: 0}
 --- !u!1 &1233538139
 GameObject:
   m_ObjectHideFlags: 0
@@ -28952,7 +28952,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcd75dc6a312bdc44b36bdea7e7ff447, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dataCard: {fileID: 11400000, guid: d0772dbd92f2e6049929d741ebcba3a0, type: 2}
+  dataCard: {fileID: 0}
   Damage: 0
   textDamage: {fileID: 92858104}
   panelIvent: {fileID: 0}
