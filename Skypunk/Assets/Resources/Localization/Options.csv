@@ -1,0 +1,106 @@
+Key,Russian,English
+EnBtn,АНГЛИЙСКИЙ,ENGLISH
+RuBtn,РУССКИЙ,RUSSIAN
+OptMusic,МУЗЫКА,MUSIC
+OptFX,ЗВУКОВЫЕ ЭФФЕКТЫ,FX
+OptSound,ЗВУК,SOUND
+OptLanguage,ЯЗЫК,LANGUAGE
+OptExit,ВЫХОД,EXIT
+OptOptions,ОПЦИИ,OPTIONS
+OptLoadGame,ЗАГРУЗКА,LOAD GAME
+OptNewGame,НОВАЯ ИГРА,NEW GAME
+,,
+MenuExit,ВЫХОД,EXIT
+MenuOptions,ОПЦИИ,OPTIONS
+MenuRestart,РЕСТАРТ,RESTART
+,,
+Searching,ПОИСК,SEARCHING
+SearchHold,УДЕРЖИВАЙ,HOLD
+SearchHeader,ЗАБРОШЕННАЯ СТАНЦИЯ,ABANDONED STATION
+,,
+LtChemicals,ХИМИКАТЫ,CHEMICALS
+LtCloth,ТКАНЬ,CLOTH
+LtGas,ГАЗ,GAS
+LtMetal,МЕТАЛ,METAL
+LtPetroleum,НЕФТЬ,PETROLEUM
+LtSupplies,ПРИПАСЫ,SUPPLIES
+,,
+CourCourier,КУРЬЕР,COURIER
+CourSend,ОТПРАВИТЬ,SEND
+CourCargoHold,ТРЮМ,CARGO HOLD
+ShipHold,ТРЮМ,CARGO HOLD
+ShipDrop,ВЫБРОСИТЬ,DROP
+,,
+,,
+DeathLuck1,МЁРТВАЯ УДАЧА,DEAD LUCK
+DeathLuck2,"Крики грифов и запах разлагающейся плоти привели вас к могучему дереву, на ветвях которого висели три трупа.",The screams of the vultures and the smell of decaying flesh led you to a mighty tree with three corpses hanging from its branches.
+DeathLuck3,Пройти мимо,Pass it by
+DeathLuck4,Похоронить трупы,Bury corpses
+DeathLuck5,"Посчитав место чрезвычайно опасным, Вы решаете быстрее его покинуть.",You decide to leave the place faster considering it extremely dangerous
+DeathLuck6,"Когда Вы снимали трупы, из кармана одного из них выпал лоскуток бумаги с обозначением заброшенной заправки на острове (Топливо +2).",A piece of paper with the designation of an abandoned station fell out of the pocket of one of corpses when you removed (Fuel +2).
+Dinner1,ОБЕД ПОДАН,THE DINNER IS SERVED
+Dinner2,"Из-за холма на острове до Вас доносятся крики «Еда, аппетитная, вкусная еда за топливо». Добравшись до источника шума, Вы замечаете фигуру под палаткой, а перед ним скромно накрытый стол. Он предлагает присесть за стол и обсудить детали обмена.","You hear screams from over the hill on the island ""Food, mouthwatering, delicious food for fuel"". When you reach the source of the noise, you notice a figure under the tent and a modestly laid table in front of him. He offers to sit down at the table and discuss the details of the exchange."
+Dinner3,Присесть за стол,Sit down
+Dinner4,Отказаться,Refuse
+Dinner5,"Вы достаете из корабля часть топлива и присаживаетесь за стол, фигура восторженно кричит «А вот и обед к нам пожаловал». Однако Вам удаётся улететь из западни людоедов, оставив выгруженное топливо (Топливо -2).","You get some fuel out of the ship and sit down at the table. The figure enthusiastically shouts ""The dinner is served."" However you manage to escape from the trap of cannibals leaving unloaded fuel (Fuel -2)."
+Dinner6,"Услышав отказ, фигура  яростно кричит «Обед хочет убежать». Вы понимаете, что попали в западню людоедов, схватываете часть еды со стола и садитесь на корабль.","After your refusal the figure shouts furiously ""The dinner wants to run away."" You understand that you have fallen into the trap of cannibals, grab some of the food from the table and get on the ship."
+EasyDeal1,ЛЁГКИЙ НАВАР,EASY DEAL
+EasyDeal2,"Вы встретили двух выживших, которые предлагают Вам купить по выгодному курсу в обмен на топливо несколько товаров, которые можно обменять втридорога далее в поселении по пути.",You met two survivors who offer you to buy several goods at a favorable rate in exchange for fuel. These goods can be exchanged at crazy amount in the settlement further along the way.
+EasyDeal3,Согласиться,Accept the proposal
+EasyDeal4,Отказаться,Refuse
+EasyDeal5,"Вы обмениваете топливо на товары. При попытке их продать в поселении торговцы узнают в них свои украденные товары, забирают их и советует немедленно убираться из поселения (Топливо -2).","You exchange fuel for goods. When trying to sell them in a settlement, merchants recognize them as their stolen goods, take them and advise them to immediately get out of the settlement (Fuel -1)."
+EasyDeal6,"Вы не доверяете такой удаче с товарами, поэтому отказываетесь от предложения и продолжаете путь.","You don't trust such good luck with the goods, so refuse the offer and continue on your way."
+LastBreath1,ПОСЛЕДНИЙ ВЗДОХ,THE LAST BREATH
+LastBreath2,"Вы слышите мольбы о помощи, на обочине лежит существо, отдаленно напоминающее человека. Оно говорит, что уже никогда не сможет восстановиться и молит закончить его страдания.",You hear pleas for help. On the sidelines lies a creature that vaguely resembles a person. He says that he will never be able to recover and begs to end his suffering.
+LastBreath3,Помочь ему,Spare his suffering
+LastBreath4,Пройти мимо,Pass it by
+LastBreath5,"Существо перед смертью дает карту, на которой отмечен тайник.",Before death the creature gives a cache map.
+LastBreath6,"Вы считаете негуманным лишение жизни и опасаетесь заразиться неизвестным недугом, поразившим этого человека, поэтому оставляете его мучиться дальше.","You consider the deprivation of life inhumane and are afraid of contracting an unknown ailment that struck this person, so you leave him."
+NaturesPower1,СИЛА ПРИРОДЫ,POWER OF NATURE
+NaturesPower2,"Пролетая над остатками леса на одном из островов, Вы заметили на опушке грациозного оленя.",Flying over the remnants of the forest on one of the islands you noticed a graceful deer at the edge.
+NaturesPower3,Убить животное,Kill an animal
+NaturesPower4,Оставить в живых,Keep alive
+NaturesPower5,Встретить такое животное - это большая редкость. Его мясо существенно пополнит запасы еды.,It is very rare to meet such an animal. Its meat will significantly replenish food supplies.
+NaturesPower6,"Вы посчитали, что природе нужно восстановиться, и оставили оленя. Вы не успели обернуться, как услышали пронзительный вой. Два волка повалили оленя и вгрызлись в тушу.","You thought that nature needed to recover, and you left the deer. Before you could turn around, you heard a piercing howl. Two wolves knocked down the deer and bit into the carcass."
+MyPrecious1,МОЯ ПРЕЛЕСТЬ,MY PRECIOUS
+MyPrecious2,"На пути вы встречаете торговца, который предлагает Вам купить товар по столь низким ценам, что Вы едва сдерживаетесь, чтобы выкупить все товары. ",You meet a merchant on the way who offers you to buy goods at such low prices that you can hardly restrain yourself from buying all the goods.
+MyPrecious3,Согласиться на покупку,Agree to purchase
+MyPrecious4,Отказаться от сделки,Refuse the deal
+MyPrecious5,"Торговец, оказавшись членом банды головорезов, зовет друзей расправиться с вами. Вам еле удается удрать, но корабль получает повреждения (Урон -2)","The merchant, being a member of a gang of thugs, calls his friends to deal with you. You barely manage to escape, but the ship is damaged (Damage -2)"
+MyPrecious6,"Торговец кричит, пытаясь остановить Вас, из укрытий выбегают головорезы, чтобы расправиться с Вами. Однако благодаря предосторожности команде удается быстро улететь.","The merchant screams, trying to stop you, thugs run out of hiding to deal with you. However, thanks to the precaution, the team manages to fly away quickly."
+Pyromaniac1,ПИРОМАНЬЯК,PYROMANIAC
+Pyromaniac2,"Вы замечаете на пути следы топлива, которые ведут к заправочной станции.",You notice traces of fuel along the way that lead to a gas station.
+Pyromaniac3,Пойти к станции,Go to the station
+Pyromaniac4,Пройти мимо,Pass it by
+Pyromaniac5,"У станции Вас замечает раненный человек и кричит, что умрет, но никому не отдаст топливо, поджигая следы. Команда в спешке, бросив товары для обмена, бежит к кораблю и взлетает.","At the station, a wounded man notices you and shouts that he will die, but will not give fuel to anyone, setting fire to the tracks. The team in a hurry, throwing goods for exchange, runs to the ship and takes off."
+Pyromaniac6,"Разлитое топливо выглядит подозрительным, поэтому Вы решаете поискать топливо на иных островах.","The spilled fuel looks suspicious, so you decide to look for fuel on other islands."
+Silhouettes1,СИЛУЭТЫ,SILHOUETTES
+Silhouettes2,Вдали на пути виднеются силуэты орудий противовоздушной обороны.,In the distance you see the silhouettes of air defense weapons.
+Silhouettes3,Ехать навстречу,Ride towards them
+Silhouettes4,Объехать орудия,Avoid the guns
+Silhouettes5,"Приблизившись, Вы понимаете, что это всего лишь остатки брошенной техники.","As you get closer, you realize that these are just the remains of abandoned equipment."
+Silhouettes6,Ради безопасности корабля и экипажа Вы решаете пролететь в обход орудий (Топливо -2).,"For the safety of the ship and the crew, you decide to fly around the guns (Fuel -2)."
+PropheticTraveler1,ПУТНИК ВЕЩИЙ,PROPHETIC TRAVELER
+PropheticTraveler2,"Пролетая над островом, Вы увидели разбитый корабль, Вы решили попытать удачу и раздобыть ценные детали. Ничего ценного найти не удалось, а грузовой отсек был закрыт.","Flying over the island you saw a wrecked ship. You decided to try your luck and get valuable parts. Nothing of value could be found, and the cargo hold was closed."
+PropheticTraveler3,Вскрыть замок,Pick the lock
+PropheticTraveler4,Оставить корабль,Leave the ship
+PropheticTraveler5,"После нескольких попыток вскрыть замок срабатывает система самоуничтожения. Вам удается вернуться на свой корабль и взлететь, но взрывная волна задевает корабль (Урон -2).","After several attempts to open the lock, the self-destruct system is triggered. You manage to get back to your ship and take off, but the blast wave hits the ship (Damage -2)."
+PropheticTraveler6,"Вы считаете, что содержимое грузового отсека не стоит затрат времени, поэтому оставляете корабль далее гнить под палящим солнцем","You think that the contents of the cargo hold are not worth the time, so you leave the ship to rot further in the scorching sun"
+NotAThief1,НЕ ПОЙМАН - НЕ ВОР,"NO BLOOD, NO FOUL"
+NotAThief2,"На острове команда встречает двух торговцев, которые обвиняют друг друга в краже товаров. Вы внимательно наблюдаете за ними, один из них хорошо одет и достаточно полного телосложения, другой – худощавый и по одеяниям не сильно похож на торговца. ","The crew meets two merchants on the island who accuse each other of stealing goods. You watch them closely, one of them is well dressed and of a fairly full build, the other is thin and does not look much like a merchant in attire."
+NotAThief3,Поддержать полного,Support a plump one
+NotAThief4,Прав худощавый,The skinny merchant is right
+NotAThief5,"Вы считаете, что второй торговец больше похож на вора, и помогаете прогнать его. В ответ торговец благодарит Вас и желает безопасного пути.","You think that the second merchant is more like a thief, and you help drive him away. In return, the merchant thanks you and wishes you a safe journey."
+NotAThief6,"Вы посчитали, что второму торговцу спорные товары нужнее, а другой не сильно обеднеет. В ответ торговец благодарит Вас и выдает награду.","You thought that the second trader needed these goods more, while the other would not become much poorer. In response, the merchant thanks you and gives you a reward."
+ThornyPath1,ТЕРНИСТЫЙ ПУТЬ,A THORNY PATH
+ThornyPath2,"Вы встретили одинокого путника, пытающегося добраться до базы. Он говорит, что хорошо знает эти места, однако, дальнейший участок пути крайне опасен для одинокого путника, и он предлагает вместе проделать этот путь.","You met a lone traveler trying to get to the base. He says that he knows these places well, however, the further section of the path is extremely dangerous for a lonely traveler, and he offers to make this path together."
+ThornyPath3,Отказаться,Refuse
+ThornyPath4,Согласиться,Accept the proposal
+ThornyPath5,Через некоторое расстояние Вы попадаете в зону обстрела (Урон -2).,You get into the firing zone after some distance  (Damage -2).
+ThornyPath6,"Вместе вы долетаете до его базы, куда он наконец-то вернулся после длительного путешествия и не рассчитывает уже более покидать ее. Он отдаёт Вам остаток своего топлива (Топливо +2).","You fly to his base together , where he finally returned after a long journey and no longer expects to leave it. He gives you the rest of his fuel (Fuel +2)."
+CarelessWanderers1,НЕРАДИВЫЕ СТРАННИКИ,CARELESS WANDERERS
+CarelessWanderers2,"Вы встретили группу выживших, у которых закончились запасы топлива. Они просят вас поделиться топливом.",You met a group of survivors who are running out of fuel. They ask you to share fuel.
+CarelessWanderers3,Оставить их,Leave them
+CarelessWanderers4,Поделиться,Share fuel with them
+CarelessWanderers5,"Вам самим нужно экономить топливо. В пути экипаж замечает, что пропала запасная канистра с бензином, вероятно, пока Вы говорили с выжившими, один из них стащил ее (Топливо -2).","You yourself need to save fuel. On the way, the crew notices that a spare can of gasoline is missing, probably while you were talking to the survivors, one of them stole it (Fuel -1)."
+CarelessWanderers6,В благодарность они делятся имеющимися у них ценными ресурсами.,"In gratitude, they share the valuable resources they have."

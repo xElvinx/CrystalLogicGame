@@ -4,6 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Audio;
 using OneClickLocalization.Core;
+//using OneClickLocalization;
+//using static UnityEngine.SystemLanguage;
+
 [Serializable]
 public class UIOption : MonoBehaviour
 {
@@ -18,6 +21,15 @@ public class UIOption : MonoBehaviour
     [SerializeField] private AudioMixer audio;
 
     [SerializeField] private LocalizationSetup localization;
+
+    /*OneClickLocalization.Components.OCLComponentAdapter GetOCL;
+    public static OneClickLocalization.OCL.ActiveChanged ChangeLang;
+    //.LanguageChanged DefaultLang;
+    delegate void ActiveChanged(bool isActive);
+    ActiveChanged onActiveChanged;
+
+    public delegate void LanguageChanged(SystemLanguage oldLang, SystemLanguage newLang);
+    public event LanguageChanged onLanguageChanged;*/
 
     private void Awake()
     {
@@ -40,6 +52,17 @@ public class UIOption : MonoBehaviour
         /*localization.defaultLanguage = SystemLanguage.English;
         localization.SetDefaultLanguage(SystemLanguage.English);*/
         localization.forcedLanguage = SystemLanguage.English;
+        //localization.active = false;
+        //localization.active = true;
+        //onActiveChanged.Invoke(true);
+        //ChangeLang.Invoke(false);
+        //ChangeLang.Invoke(true);
+
+        //OCL.SetLanguage((SystemLanguage)Enum.Parse(typeof(SystemLanguage), SystemLanguage.English));
+        //SetCLanguage((SystemLanguage)Enum.Parse(typeof(SystemLanguage), SystemLanguage.English));
+        //if(Application.systemLanguage != SystemLanguage.English)
+        //onLanguageChanged.Invoke(SystemLanguage.Russian, SystemLanguage.English);
+        //DefaultLang.Invoke(SystemLanguage.Russian, SystemLanguage.English);
     }
 
     public void RuLang()
@@ -48,5 +71,7 @@ public class UIOption : MonoBehaviour
         localization.SetDefaultLanguage(SystemLanguage.Russian);*/
         //localization.Ru();
         localization.forcedLanguage = SystemLanguage.Russian;
+        //onLanguageChanged.Invoke(SystemLanguage.English, SystemLanguage.Russian);
     }
+
 }

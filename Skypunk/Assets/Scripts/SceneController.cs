@@ -18,6 +18,8 @@ public class SceneController : MonoBehaviour
     public float iron = 5f;
     [SerializeField] private Text ironText;
 
+    public GameObject Ivent; // Elvin's addition
+
     void Update()
     {
         if (health <= 0 || fuel <= 0)
@@ -49,6 +51,7 @@ public class SceneController : MonoBehaviour
 
             case DataCard.classCard.Search:
                 lootList = card.GetComponent<Card>().GetLoot(lootList);
+                Ivent.GetComponent<Ivent>().Ivents = card.GetComponent<Card>().Ivent; // Elvin's addition
                 break;
 
             case DataCard.classCard.Fuel:

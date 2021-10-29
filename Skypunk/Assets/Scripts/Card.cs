@@ -15,7 +15,7 @@ public class Card : MonoBehaviour
 
     [SerializeField] private Text textDamage;
     [SerializeField] private Transform panelIvent;
-    [SerializeField] private DataIvent Ivent;
+    [SerializeField] public DataIvent Ivent; // Elvin's: private to public
     [SerializeField] private GameObject search;
     void Start()
     {
