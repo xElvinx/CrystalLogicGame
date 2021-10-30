@@ -4339,7 +4339,7 @@ GameObject:
   - component: {fileID: 367751938}
   m_Layer: 5
   m_Name: Panel
-  m_TagString: Untagged
+  m_TagString: Panel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5508,7 +5508,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 9000b6048492ab64dadd42f103661682, type: 3}
-    m_FontSize: 24
+    m_FontSize: 20
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 10
@@ -5818,8 +5818,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 205.94}
-  m_SizeDelta: {x: 1302, y: 98.11}
+  m_AnchoredPosition: {x: 199.71, y: 205.94}
+  m_SizeDelta: {x: 749.42, y: 98.11}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &550689673
 MonoBehaviour:
@@ -7608,9 +7608,9 @@ RectTransform:
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.5029907, y: -93.065}
-  m_SizeDelta: {x: -1152.826, y: -630.272}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 839, y: 289.49}
+  m_SizeDelta: {x: 121, y: 121}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &668970932
 MonoBehaviour:
@@ -7632,7 +7632,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 71512d387f397004ca97e2d35074cb22, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a1d50c2be09ec5040b27548d438df517, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -8528,7 +8528,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 121, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &743485319
 MonoBehaviour:
@@ -8543,14 +8543,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 71512d387f397004ca97e2d35074cb22, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -8627,10 +8627,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 9000b6048492ab64dadd42f103661682, type: 3}
-    m_FontSize: 24
+    m_FontSize: 20
     m_FontStyle: 1
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 2
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -10765,7 +10765,7 @@ GameObject:
   - component: {fileID: 936550967}
   m_Layer: 5
   m_Name: PanelMenu
-  m_TagString: Untagged
+  m_TagString: Panel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11071,6 +11071,7 @@ MonoBehaviour:
   fuel: 18
   maxFuel: 20
   money: 0
+  moveable: 1
   health: 15
   healthText: {fileID: 527457265}
   iron: 5
@@ -12799,8 +12800,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 78.445}
-  m_SizeDelta: {x: 350, y: 157}
+  m_AnchoredPosition: {x: 199, y: 78}
+  m_SizeDelta: {x: 750, y: 157}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1098468715
 MonoBehaviour:
@@ -19443,7 +19444,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -164.3, y: -234.8}
+  m_AnchoredPosition: {x: 34, y: -234.8}
   m_SizeDelta: {x: 310, y: 71}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1501478795
@@ -20343,7 +20344,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 164.3, y: -234.8}
+  m_AnchoredPosition: {x: 362.6, y: -234.8}
   m_SizeDelta: {x: 310, y: 71}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1583306364
@@ -20894,7 +20895,7 @@ GameObject:
   - component: {fileID: 1608016339}
   m_Layer: 5
   m_Name: Search
-  m_TagString: Untagged
+  m_TagString: Panel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22233,7 +22234,7 @@ GameObject:
   - component: {fileID: 1712008880}
   m_Layer: 5
   m_Name: PanelLoot
-  m_TagString: Untagged
+  m_TagString: Panel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26808,7 +26809,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -234.79999}
+  m_AnchoredPosition: {x: 199.00002, y: -234.79999}
   m_SizeDelta: {x: 310, y: 71}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1987192652
@@ -28957,7 +28958,7 @@ MonoBehaviour:
   - {fileID: 1507233806}
   - {fileID: 1990048051}
   - {fileID: 37546831}
-  - {fileID: 952110003}
+  - {fileID: 1633035833}
   - {fileID: 185971235}
   DataLootToTranslate:
   - {fileID: 11400000, guid: 6905f3c66da3340428719e46b72cd1f6, type: 2}

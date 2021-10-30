@@ -74,7 +74,7 @@ public class PanelLoot : MonoBehaviour
             BaseItems.items[i.nameItem] = i.countItem;
             controller.lootList.Remove(i.nameItem);
         }
-        Debug.Log(controller.lootList.Count);
+
         for (var i = 0; i < listLoot.Count; i++)
         {
             DataLoot dataLoot = Resources.Load<DataLoot>("ScriptableObjects/Loot/" + listLoot[i].nameItem);
@@ -85,6 +85,12 @@ public class PanelLoot : MonoBehaviour
             courierList.GetChild(i).GetChild(1).GetComponent<Text>().text = dataLoot.Name;
             courierList.GetChild(i).GetChild(2).GetComponent<Text>().text = listLoot[i].countItem.ToString();
         }
+
+        foreach (var i in BaseItems.items)
+        {
+            Debug.Log(i.Key + " " + i.Value);
+        }
+
         listLoot = new List<Item>();
         isDelete = true;
         transform.gameObject.SetActive(false);

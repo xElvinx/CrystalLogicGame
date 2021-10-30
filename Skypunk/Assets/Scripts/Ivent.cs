@@ -9,7 +9,7 @@ public class Ivent : MonoBehaviour
     public GameObject Scene;
     [SerializeField] private Transform panelIvent;
     
-    public DataIvent Ivents = new DataIvent();
+    public DataIvent Ivents;
     public Sprite lootBox;
 
     public void Close(GameObject gameObject)
@@ -34,6 +34,12 @@ public class Ivent : MonoBehaviour
             panelIvent.GetChild(5).GetChild(0).GetComponent<Image>().sprite = Ivents.dataLootA.img;
             panelIvent.GetChild(5).GetChild(1).GetComponent<Text>().text = Ivents.dataLootA.Name;
             panelIvent.GetChild(5).GetChild(2).GetComponent<Text>().text = Ivents.countA.ToString();
+
+            if (!Scene.GetComponent<SceneController>().lootList.ContainsKey(Ivents.dataLootA.name))
+                Scene.GetComponent<SceneController>().lootList[Ivents.dataLootA.name] = Ivents.countA;
+            else
+                Scene.GetComponent<SceneController>().lootList[Ivents.dataLootA.name] += Ivents.countA;
+
         } else if (Ivents.name == "Dinner" || Ivents.name == "EasyNavar" || Ivents.name == "Wanderers")
         {
             Scene.GetComponent<SceneController>().fuel -= 2;
@@ -63,6 +69,12 @@ public class Ivent : MonoBehaviour
             panelIvent.GetChild(5).GetChild(0).GetComponent<Image>().sprite = Ivents.dataLootB.img;
             panelIvent.GetChild(5).GetChild(1).GetComponent<Text>().text = Ivents.dataLootB.Name;
             panelIvent.GetChild(5).GetChild(2).GetComponent<Text>().text = Ivents.countB.ToString();
+
+            if (!Scene.GetComponent<SceneController>().lootList.ContainsKey(Ivents.dataLootB.name)) 
+                Scene.GetComponent<SceneController>().lootList[Ivents.dataLootB.name] = Ivents.countB;
+            else
+                Scene.GetComponent<SceneController>().lootList[Ivents.dataLootB.name] += Ivents.countB;
+
             if (Ivents.name == "Wanderers")
             {
                 Scene.GetComponent<SceneController>().fuel -= 1;

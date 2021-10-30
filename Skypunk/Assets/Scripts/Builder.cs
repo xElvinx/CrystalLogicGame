@@ -24,7 +24,7 @@ public class Builder : MonoBehaviour
     {
         int floorsCount = UnityEngine.Random.Range(9, 16);
         
-        for (int i = 1; i <= floorsCount; i++)
+        for (int i = 1; i <= floorsCount + 1; i++)
         {
             
             GameObject gameObject = new GameObject("Floor " + i.ToString());
@@ -32,16 +32,23 @@ public class Builder : MonoBehaviour
             gameObject.transform.localPosition = new Vector3(0f, center.y);
             gameObject.transform.localScale = Vector3.one;
             
-            Instantiate(gameObject);
+            //Instantiate(gameObject);
 
             if (i == 1)
                 gameObject.layer = 6;
 
-            if (i % (floorsCount / 2) == 0)
+            if (i % (floorsCount / 2 + 1) == 0 && i < floorsCount - 3)
             {
                 BuildCourier(center, gameObject);
                 center = new Vector2(center.x, center.y + 6f);
                 continue;
+            }
+
+            if (i == floorsCount + 1)
+            {
+                GameObject lastLevel = Resources.Load<GameObject>("Prefabs/LastFloor/LastFloor") as GameObject;
+                Instantiate(lastLevel, gameObject.transform.TransformPoint(new Vector3(-1.71f, 0f)), Quaternion.identity, gameObject.transform);
+                break;
             }
 
             for (int j = -1; j <= 1; j++)
@@ -77,6 +84,8 @@ public class Builder : MonoBehaviour
 
         if (typeChild == "Search")
         {
+            DataIvent[] listIvent = Resources.LoadAll<DataIvent>("ScriptableObjects/Ivents");
+            enemy.GetComponent<Card>().Ivent = listIvent[UnityEngine.Random.Range(0, listIvent.Length - 1)];
             enemy.GetComponent<Card>().panelIvent = panelIvent;
             enemy.GetComponent<Card>().search = search;
         }
