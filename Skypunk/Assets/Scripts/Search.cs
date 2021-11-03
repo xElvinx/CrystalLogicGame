@@ -99,7 +99,6 @@ public class Search : MonoBehaviour
     {
         int countLoot = Random.Range(0, 4);
         closePanel = true;
-        Debug.Log(countLoot);
         for (int i = 0; i < 4; i++)
         {
             Transform panel = lootPanel.GetChild(i);

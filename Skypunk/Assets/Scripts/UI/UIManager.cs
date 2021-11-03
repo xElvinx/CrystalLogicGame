@@ -8,6 +8,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private SceneController sceneController;
     [SerializeField] private Transform panelFuel;
     [SerializeField] private Transform panelLoot;
+    [SerializeField] private AudioSource audioListener;
+    [SerializeField] private AudioClip audioOpen;
 
     // Update is called once per frame
     void Update()
@@ -21,20 +23,25 @@ public class UIManager : MonoBehaviour
         }
 
 
-        if (Input.GetKey(KeyCode.Tab))
+        if (Input.GetKeyDown(KeyCode.Tab) && !panelLoot.gameObject.activeSelf)
         {
-            OpenPanel();
-        } else if (Input.GetKey(KeyCode.Escape))
+            OpenPanelLoot();
+        } else if (Input.GetKeyDown(KeyCode.Tab))
         {
             panelLoot.gameObject.SetActive(false);
         }
     }
 
-    public void OpenPanel()
+    public void OpenPanelLoot()
     {
         int j = 0;
         panelLoot.gameObject.SetActive(true);
         Transform panel = GameObject.FindGameObjectWithTag("LootList").transform;
+        audioListener.clip = audioOpen;
+        audioListener.Play();
+
+        panelLoot.GetChild(0).gameObject.SetActive(true);
+        panelLoot.GetChild(1).gameObject.SetActive(false);
 
         foreach (var i in sceneController.lootList)
         {
@@ -57,10 +64,66 @@ public class UIManager : MonoBehaviour
         {
             if (i >= sceneController.lootList.Count)
             {
+                panel.GetChild(i).GetComponent<Button>().enabled = false;
+
+                panel.GetChild(i).GetChild(0).GetComponent<Text>().text = "";
+                panel.GetChild(i).GetChild(1).GetComponent<Text>().text = "";
+                panel.GetChild(i).GetChild(2).GetComponent<Image>().color = new Color(255, 255, 255, 0);
+            } else
+            {
+                panel.GetChild(i).GetComponent<Button>().enabled = true;
+            }
+
+            panel.GetChild(i).GetChild(3).gameObject.SetActive(false);
+        }
+
+        Text money = GameObject.FindGameObjectWithTag("Money").GetComponent<Text>();
+        money.text = sceneController.money.ToString();
+    }
+
+    public void OpenPanelBase()
+    {
+        int j = 0;
+        panelLoot.gameObject.SetActive(true);
+        Transform panel = GameObject.FindGameObjectWithTag("LootList").transform;
+        audioListener.clip = audioOpen;
+        audioListener.Play();
+
+        panelLoot.GetChild(0).gameObject.SetActive(false);
+        panelLoot.GetChild(1).gameObject.SetActive(true);
+
+        foreach (var i in BaseItems.items)
+        {
+            if (i.Value > 0)
+            {
+                DataLoot dataLoot = Resources.Load<DataLoot>("ScriptableObjects/Loot/" + i.Key);
+
+                panel.GetChild(j).GetChild(0).GetComponent<Text>().text = i.Key;
+                panel.GetChild(j).GetChild(1).GetComponent<Text>().text = i.Value.ToString();
+
+                Image lootImg = panel.GetChild(j).GetChild(2).GetComponent<Image>();
+
+                lootImg.sprite = dataLoot.img;
+                lootImg.color = new Color(lootImg.color.r, lootImg.color.g, lootImg.color.b, 1);
+                j++;
+            }
+        }
+
+        for (int i = 0; i < panel.childCount; i++)
+        {
+            if (i >= BaseItems.items.Count)
+            {
+                panel.GetChild(i).GetComponent<Button>().enabled = false;
+
                 panel.GetChild(i).GetChild(0).GetComponent<Text>().text = "";
                 panel.GetChild(i).GetChild(1).GetComponent<Text>().text = "";
                 panel.GetChild(i).GetChild(2).GetComponent<Image>().color = new Color(255, 255, 255, 0);
             }
+            else
+            {
+                panel.GetChild(i).GetComponent<Button>().enabled = true;
+            }
+
             panel.GetChild(i).GetChild(3).gameObject.SetActive(false);
         }
 

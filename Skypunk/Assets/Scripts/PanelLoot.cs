@@ -29,7 +29,7 @@ public class PanelLoot : MonoBehaviour
         if (isDelete)
             maxCount = parent.parent.childCount;
 
-        if (!parent.GetChild(3).gameObject.activeSelf && listLoot.Count < maxCount)
+        if (!parent.GetChild(3).gameObject.activeSelf && listLoot.Count < maxCount && controller.lootList.Count > 0)
         {
             string Name = parent.GetChild(0).GetComponent<Text>().text;
             int Count = Convert.ToInt32(parent.GetChild(1).GetComponent<Text>().text);

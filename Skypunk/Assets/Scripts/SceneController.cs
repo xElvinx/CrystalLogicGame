@@ -3,30 +3,39 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using static PlayerStatic;
 
 public class SceneController : MonoBehaviour
 {
-    public Dictionary<string, int> lootList = new Dictionary<string, int>();
-
-    public int fuel = 15;
     public int maxFuel = 20;
     public int money = 0;
     public bool moveable = true;
 
-    public float health = 15f;
-    [SerializeField] private Text healthText;
+    public Dictionary<string, int> lootList;
 
-    public float iron = 5f;
+    public float health;
+    public float iron;
+    public int fuel;
+
+    [SerializeField] private Text healthText;
     [SerializeField] private Text ironText;
+    [SerializeField] private UIButtons uIButtons;
 
     public GameObject Ivent;
+
+    void Start()
+    {
+        lootList = PlayerStatic.lootList;
+        fuel = PlayerStatic.fuel;
+        health = PlayerStatic.health;
+        iron = PlayerStatic.iron;
+    }
 
     void Update()
     {
         if (health <= 0 || fuel <= 0)
         {
             health = 0;
-            UIButtons uIButtons = new UIButtons();
             uIButtons.Restart();
         }
 
@@ -43,8 +52,7 @@ public class SceneController : MonoBehaviour
     {
         if (card.GetComponent<Card>() == null) 
         {
-            UIButtons uIButtons = new UIButtons();
-            uIButtons.Restart();
+            uIButtons.OpenMap();
             return;
         }
 
@@ -83,11 +91,6 @@ public class SceneController : MonoBehaviour
         {
             foreach (Transform i in card.transform.parent.parent.GetChild(1))
                 i.gameObject.layer = 6;
-        }
-        else
-        {
-            UIButtons uIButtons = new UIButtons();
-            uIButtons.Restart();
         }
 
         Destroy(card.transform.parent.gameObject);

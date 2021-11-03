@@ -12,6 +12,7 @@ public class Movement : MonoBehaviour
     [SerializeField] private Camera cam;
     [SerializeField] private LayerMask layerMask;
     [SerializeField] private SceneController scene;
+    [SerializeField] private AudioSource clipAudio;
 
     public float radius = 0.1f;
     public float speed = 0.5f;
@@ -64,7 +65,6 @@ public class Movement : MonoBehaviour
             oldPosCam.y = oldPosCam.y + collider.transform.position.y - oldPos.y;
             oldPos = collider.transform.position;
 
-            AudioSource clipAudio = transform.GetComponent<AudioSource>();
             clipAudio.clip = collider.gameObject.GetComponent<AudioSource>().clip;
             clipAudio.Play();
 
