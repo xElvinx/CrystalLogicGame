@@ -59,6 +59,22 @@ public class MultiLanguage : MonoBehaviour
         textToTranslate[17].text = LocalizationManager.Localize("ShipHold");
         textToTranslate[18].text = LocalizationManager.Localize("ShipDrop");
 
+        // FightField
+        textToTranslate[19].text = LocalizationManager.Localize("PanelAcceptHeader");
+        textToTranslate[20].text = LocalizationManager.Localize("PanelAcceptText");
+        textToTranslate[21].text = LocalizationManager.Localize("PanelInfoPhase1");
+        textToTranslate[22].text = LocalizationManager.Localize("PanelInfoPhase2");
+        textToTranslate[23].text = LocalizationManager.Localize("PanelInfoPhase3");
+        textToTranslate[24].text = LocalizationManager.Localize("PanelInputInfo1");
+        textToTranslate[25].text = LocalizationManager.Localize("PanelInputInfo2");
+        textToTranslate[26].text = LocalizationManager.Localize("PanelInputInfo3");
+        textToTranslate[27].text = LocalizationManager.Localize("PanelInputInfo4");
+
+        // Base
+        textToTranslate[28].text = LocalizationManager.Localize("BaseHeader");
+        textToTranslate[29].text = LocalizationManager.Localize("BaseInfo");
+        textToTranslate[30].text = LocalizationManager.Localize("BaseBtn");
+
         // Loot
         DataLootToTranslate[0].Name = LocalizationManager.Localize("LtChemicals");
         DataLootToTranslate[1].Name = LocalizationManager.Localize("LtCloth");
@@ -66,6 +82,19 @@ public class MultiLanguage : MonoBehaviour
         DataLootToTranslate[3].Name = LocalizationManager.Localize("LtMetal");
         DataLootToTranslate[4].Name = LocalizationManager.Localize("LtPetroleum");
         DataLootToTranslate[5].Name = LocalizationManager.Localize("LtSupplies");
+        DataLootToTranslate[6].Name = LocalizationManager.Localize("LtBook");
+        DataLootToTranslate[7].Name = LocalizationManager.Localize("LtBoots");
+        DataLootToTranslate[8].Name = LocalizationManager.Localize("LtClockGear");
+        DataLootToTranslate[9].Name = LocalizationManager.Localize("LtGear");
+        DataLootToTranslate[10].Name = LocalizationManager.Localize("LtHarmonica");
+        DataLootToTranslate[11].Name = LocalizationManager.Localize("LtKnife");
+        DataLootToTranslate[12].Name = LocalizationManager.Localize("LtMicroscope");
+        DataLootToTranslate[13].Name = LocalizationManager.Localize("LtMug");
+        DataLootToTranslate[14].Name = LocalizationManager.Localize("LtPowder");
+        DataLootToTranslate[15].Name = LocalizationManager.Localize("LtRadiator");
+        DataLootToTranslate[16].Name = LocalizationManager.Localize("LtSkull");
+        DataLootToTranslate[17].Name = LocalizationManager.Localize("LtSpring");
+        DataLootToTranslate[18].Name = LocalizationManager.Localize("LtWheel");
 
         // Events
         DataIventToTranslate[0].TextHeader = LocalizationManager.Localize("DeathLuck1");
