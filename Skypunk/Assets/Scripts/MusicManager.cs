@@ -7,6 +7,14 @@ public class MusicManager : MonoBehaviour
     [SerializeField] private AudioSource audioSFX;
     [SerializeField] private AudioSource audioMusic;
     [SerializeField] private AudioSource audioSound;
+    [SerializeField] private AudioClip battleClip;
+
+    public void PlayBattleMusic()
+    {
+        audioSound.clip = battleClip;
+        audioSound.Play();
+    }
+
     public void PlaySFXOnClick(AudioClip music)
     {
         audioSFX.clip = music;

@@ -8,6 +8,7 @@ public class UIButtons : MonoBehaviour
 {
     [SerializeField] private Transform panelMap;
     [SerializeField] private Transform panelOption;
+    [SerializeField] private Animator animator;
     public void Exit()
     {
         Application.Quit();

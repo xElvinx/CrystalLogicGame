@@ -58,7 +58,7 @@ public class Movement : MonoBehaviour
                 oldCollider = null;
             }
 
-        } else if (Physics.CheckSphere(transform.position, radius, layerMask) && Input.GetMouseButtonUp(0) && Mathf.Abs(transform.position.x - oldPos.x) < 300f) 
+        } else if (Physics.CheckSphere(transform.position, radius, layerMask) && Input.GetMouseButtonUp(0) && Mathf.Abs(transform.position.x - oldPos.x) < 300f && Mathf.Abs(transform.position.x - oldPos.x) > 0f) 
         {
             collider = GetCollider();
 

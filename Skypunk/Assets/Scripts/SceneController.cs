@@ -7,6 +7,7 @@ using static PlayerStatic;
 
 public class SceneController : MonoBehaviour
 {
+    public int damage = 3;
     public int maxFuel = 20;
     public int money = 0;
     public bool moveable = true;
@@ -20,6 +21,7 @@ public class SceneController : MonoBehaviour
     [SerializeField] private Text healthText;
     [SerializeField] private Text ironText;
     [SerializeField] private UIButtons uIButtons;
+    [SerializeField] private FightUIManager fightManager;
 
     public GameObject Ivent;
 
@@ -62,13 +64,11 @@ public class SceneController : MonoBehaviour
         switch (dataCard.card)
         {
             case DataCard.classCard.Enemy:
-                for (int i = 0; i < card.GetComponent<Card>().Damage; i++)
-                {
-                    if (iron > 0)
-                        iron -= 1;
-                    else
-                        health -= 1;
-                }
+                fightManager.card = card.GetComponent<Card>();
+                fightManager.transform.gameObject.SetActive(true);
+
+                transform.GetChild(0).gameObject.SetActive(false);
+                transform.GetChild(1).gameObject.SetActive(false);
                 break;
 
             case DataCard.classCard.Search:
