@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
+using static MusicSettingsStatic;
 
 public class MusicManager : MonoBehaviour
 {
@@ -8,6 +10,14 @@ public class MusicManager : MonoBehaviour
     [SerializeField] private AudioSource audioMusic;
     [SerializeField] private AudioSource audioSound;
     [SerializeField] private AudioClip battleClip;
+    [SerializeField] private AudioMixer audioMixer;
+
+    void Update()
+    {
+        audioMixer.SetFloat("soundVol", MusicSettingsStatic.soundVol);
+        audioMixer.SetFloat("musicVol", MusicSettingsStatic.musicVol);
+        audioMixer.SetFloat("sfxVol", MusicSettingsStatic.SFXVol);
+    }
 
     public void PlayBattleMusic()
     {

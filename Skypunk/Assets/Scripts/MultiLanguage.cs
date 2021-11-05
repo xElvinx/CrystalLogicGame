@@ -180,6 +180,5 @@ public class MultiLanguage : MonoBehaviour
         DataIventToTranslate[11].VarB = LocalizationManager.Localize("CarelessWanderers4");
         DataIventToTranslate[11].TextA = LocalizationManager.Localize("CarelessWanderers5");
         DataIventToTranslate[11].TextB = LocalizationManager.Localize("CarelessWanderers6");
-
     }
 }

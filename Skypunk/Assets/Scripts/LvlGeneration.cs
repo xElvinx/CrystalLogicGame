@@ -15,7 +15,7 @@ public class LvlGeneration : MonoBehaviour
     {
         int indexScene = SceneManager.GetActiveScene().buildIndex;
 
-        Vector2 nowPosLvl = transform.GetChild(indexScene).position;
+        Vector2 nowPosLvl = transform.GetChild(indexScene - 1).position;
         Transform nowPosHold = transform.GetChild(transform.childCount - 1);
 
         nowPosHold.position = new Vector2(nowPosLvl.x, nowPosLvl.y + 15f);

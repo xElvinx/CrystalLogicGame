@@ -6,7 +6,7 @@ using UnityEngine.UI;
 [CreateAssetMenu(fileName = "New Card", menuName = "Scriptable objects/Card")]
 public class DataCard : ScriptableObject
 {
-    public enum classCard {Enemy, Fuel, Search, Courier};
+    public enum classCard {Enemy, Fuel, Search, Baloon, Courier};
     public classCard card;
 
     public int minHealth;

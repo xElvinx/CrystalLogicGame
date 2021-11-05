@@ -65,8 +65,8 @@ public class Movement : MonoBehaviour
             oldPosCam.y = oldPosCam.y + collider.transform.position.y - oldPos.y;
             oldPos = collider.transform.position;
 
-            clipAudio.clip = collider.gameObject.GetComponent<AudioSource>().clip;
-            clipAudio.Play();
+            //clipAudio.clip = collider.gameObject.GetComponent<AudioSource>().clip;
+            //clipAudio.Play();
 
             scene.UseCard(collider.gameObject);
         }
