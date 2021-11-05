@@ -6,16 +6,18 @@ using UnityEngine.UI;
 public class Card : MonoBehaviour
 {
     public DataCard dataCard;
-    public float Damage;
+    public int Health;
+    public int Damage;
 
     private Text header;
     private Text text;
     private Text VarA;
     private Text VarB;
 
+    [SerializeField] private Text textHealth;
     [SerializeField] private Text textDamage;
-    [SerializeField] public DataIvent Ivent;
 
+    public DataIvent Ivent;
     public Transform panelIvent;
     public GameObject search;
 
@@ -23,6 +25,9 @@ public class Card : MonoBehaviour
     {
         if (dataCard.card == DataCard.classCard.Enemy)
         {
+            Health = Random.Range(dataCard.minHealth, dataCard.maxHealth);
+            textHealth.text = Health.ToString();
+
             Damage = Random.Range(dataCard.minDamage, dataCard.maxDamage);
             textDamage.text = System.Convert.ToString(Damage);
         }

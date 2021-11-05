@@ -8,7 +8,8 @@ public class Ivent : MonoBehaviour
     // Testing
     public GameObject Scene;
     [SerializeField] private Transform panelIvent;
-    [SerializeField] public DataIvent Ivents;
+    
+    public DataIvent Ivents;
     public Sprite lootBox;
 
     public void Close(GameObject gameObject)
@@ -69,7 +70,7 @@ public class Ivent : MonoBehaviour
             panelIvent.GetChild(5).GetChild(1).GetComponent<Text>().text = Ivents.dataLootB.Name;
             panelIvent.GetChild(5).GetChild(2).GetComponent<Text>().text = Ivents.countB.ToString();
 
-            if (!Scene.GetComponent<SceneController>().lootList.ContainsKey(Ivents.dataLootB.name))
+            if (!Scene.GetComponent<SceneController>().lootList.ContainsKey(Ivents.dataLootB.name)) 
                 Scene.GetComponent<SceneController>().lootList[Ivents.dataLootB.name] = Ivents.countB;
             else
                 Scene.GetComponent<SceneController>().lootList[Ivents.dataLootB.name] += Ivents.countB;

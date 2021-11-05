@@ -3,32 +3,44 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using static PlayerStatic;
 
 public class SceneController : MonoBehaviour
 {
-    public Dictionary<string, int> lootList = new Dictionary<string, int>();
-
-    public int fuel = 15;
+    public int damage = 3;
     public int maxFuel = 20;
     public int money = 0;
     public bool moveable = true;
 
-    public float health = 15f;
+    public Dictionary<string, int> lootList;
+
+    public float health;
+    public float iron;
+    public int fuel;
+
     [SerializeField] private Text healthText;
-
-    public float iron = 5f;
     [SerializeField] private Text ironText;
+    [SerializeField] private UIButtons uIButtons;
+    [SerializeField] private FightUIManager fightManager;
 
-    public GameObject Ivent; // Elvin's addition
+    public GameObject Ivent;
+
+    void Start()
+    {
+        lootList = PlayerStatic.lootList;
+        fuel = PlayerStatic.fuel;
+        health = PlayerStatic.health;
+        iron = PlayerStatic.iron;
+    }
 
     void Update()
     {
         if (health <= 0 || fuel <= 0)
         {
             health = 0;
-            UIButtons uIButtons = new UIButtons();
             uIButtons.Restart();
         }
+
         if (GameObject.FindGameObjectsWithTag("Panel").Length == 0)
             moveable = true;
         else
@@ -40,23 +52,28 @@ public class SceneController : MonoBehaviour
 
     public void UseCard(GameObject card)
     {
+        if (card.GetComponent<Card>() == null) 
+        {
+            uIButtons.OpenMap();
+            return;
+        }
+
         DataCard dataCard = card.GetComponent<Card>().dataCard;
         fuel -= 2;
+        
         switch (dataCard.card)
         {
             case DataCard.classCard.Enemy:
-                for (int i = 0; i < card.GetComponent<Card>().Damage; i++)
-                {
-                    if (iron > 0)
-                        iron -= 1;
-                    else
-                        health -= 1;
-                }
+                fightManager.card = card.GetComponent<Card>();
+                fightManager.transform.gameObject.SetActive(true);
+
+                transform.GetChild(0).gameObject.SetActive(false);
+                transform.GetChild(1).gameObject.SetActive(false);
                 break;
 
             case DataCard.classCard.Search:
                 lootList = card.GetComponent<Card>().GetLoot(lootList);
-                Ivent.GetComponent<Ivent>().Ivents = card.GetComponent<Card>().Ivent;//card.GetComponent<Card>().Ivent; // Elvin's addition
+                Ivent.GetComponent<Ivent>().Ivents = card.GetComponent<Card>().Ivent;
                 break;
 
             case DataCard.classCard.Fuel:
@@ -70,10 +87,12 @@ public class SceneController : MonoBehaviour
                 break;
         }
 
-        foreach (Transform i in card.transform.parent.parent.GetChild(1))
+        if (card.transform.parent.parent.childCount >= 1)
         {
-            i.gameObject.layer = 6;
+            foreach (Transform i in card.transform.parent.parent.GetChild(1))
+                i.gameObject.layer = 6;
         }
+
         Destroy(card.transform.parent.gameObject);
     }
 }

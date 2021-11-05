@@ -24,7 +24,7 @@ public class Builder : MonoBehaviour
     {
         int floorsCount = UnityEngine.Random.Range(9, 16);
         
-        for (int i = 1; i <= floorsCount; i++)
+        for (int i = 1; i <= floorsCount + 1; i++)
         {
             
             GameObject gameObject = new GameObject("Floor " + i.ToString());
@@ -42,6 +42,13 @@ public class Builder : MonoBehaviour
                 BuildCourier(center, gameObject);
                 center = new Vector2(center.x, center.y + 6f);
                 continue;
+            }
+
+            if (i == floorsCount + 1)
+            {
+                GameObject lastLevel = Resources.Load<GameObject>("Prefabs/LastFloor/LastFloor") as GameObject;
+                Instantiate(lastLevel, gameObject.transform.TransformPoint(new Vector3(-1.71f, 0f)), Quaternion.identity, gameObject.transform);
+                break;
             }
 
             for (int j = -1; j <= 1; j++)

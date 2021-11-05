@@ -204,6 +204,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 70
   m_AdditionalVertexStreams: {fileID: 0}
+<<<<<<< Updated upstream
 --- !u!1 &146623714
 GameObject:
   m_ObjectHideFlags: 0
@@ -5066,6 +5067,8 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+=======
+>>>>>>> Stashed changes
 --- !u!1 &428192563
 GameObject:
   m_ObjectHideFlags: 1
@@ -6236,7 +6239,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 902dd5735725b99449ac302db254017e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< Updated upstream
   ps: {fileID: 146623716}
+=======
+>>>>>>> Stashed changes
 --- !u!210 &1434734515
 SortingGroup:
   m_ObjectHideFlags: 0

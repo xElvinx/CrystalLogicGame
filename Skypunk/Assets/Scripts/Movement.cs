@@ -12,6 +12,7 @@ public class Movement : MonoBehaviour
     [SerializeField] private Camera cam;
     [SerializeField] private LayerMask layerMask;
     [SerializeField] private SceneController scene;
+    [SerializeField] private AudioSource clipAudio;
 
     public float radius = 0.1f;
     public float speed = 0.5f;
@@ -42,7 +43,6 @@ public class Movement : MonoBehaviour
             float nowPosY = nowPos.y;
 
             transform.position = new Vector3(nowPosX, nowPosY);
-
             collider = GetCollider();
             if (collider != null && Mathf.Abs(transform.position.x - oldPos.x) < 300f)
             {
@@ -58,14 +58,13 @@ public class Movement : MonoBehaviour
                 oldCollider = null;
             }
 
-        } else if (Physics.CheckSphere(transform.position, radius, layerMask) && Input.GetMouseButtonUp(0) && Mathf.Abs(transform.position.x - oldPos.x) < 300f) 
+        } else if (Physics.CheckSphere(transform.position, radius, layerMask) && Input.GetMouseButtonUp(0) && Mathf.Abs(transform.position.x - oldPos.x) < 300f && Mathf.Abs(transform.position.x - oldPos.x) > 0f) 
         {
             collider = GetCollider();
 
             oldPosCam.y = oldPosCam.y + collider.transform.position.y - oldPos.y;
             oldPos = collider.transform.position;
 
-            AudioSource clipAudio = transform.GetComponent<AudioSource>();
             clipAudio.clip = collider.gameObject.GetComponent<AudioSource>().clip;
             clipAudio.Play();
 

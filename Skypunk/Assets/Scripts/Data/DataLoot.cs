@@ -8,4 +8,5 @@ public class DataLoot : ScriptableObject
 {
     public Sprite img;
     public string Name;
+    public AudioClip audio;
 }
