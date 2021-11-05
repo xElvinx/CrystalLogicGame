@@ -9,17 +9,17 @@ public class MultiLanguage : MonoBehaviour
     public Text[] textToTranslate;
     public DataLoot[] DataLootToTranslate;
     public DataIvent[] DataIventToTranslate;
-    private void Awake()
+    private void Start()
     {
-        LocalizationManager.Read();
+        //LocalizationManager.Read();
 
         switch (Application.systemLanguage)
         {
             case SystemLanguage.English:
-                LocalizationManager.Language = "English";
+                Language("English");
                 break;
             case SystemLanguage.Russian:
-                LocalizationManager.Language = "Russian";
+                Language("Russian");
                 break;
         }
     }

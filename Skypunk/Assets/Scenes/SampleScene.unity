@@ -4242,7 +4242,7 @@ GameObject:
   - component: {fileID: 367751938}
   m_Layer: 5
   m_Name: Panel
-  m_TagString: Untagged
+  m_TagString: Panel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5817,7 +5817,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 205.94}
+  m_AnchoredPosition: {x: 50, y: 205.94}
   m_SizeDelta: {x: 1302, y: 98.11}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &550689673
@@ -7528,7 +7528,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -89}
+  m_AnchoredPosition: {x: 50, y: -89}
   m_SizeDelta: {x: 121, y: 121}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &668970932
@@ -10684,7 +10684,7 @@ GameObject:
   - component: {fileID: 936550967}
   m_Layer: 5
   m_Name: PanelMenu
-  m_TagString: Untagged
+  m_TagString: Panel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10990,6 +10990,7 @@ MonoBehaviour:
   fuel: 18
   maxFuel: 20
   money: 0
+  moveable: 1
   health: 15
   healthText: {fileID: 527457265}
   iron: 5
@@ -12622,8 +12623,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 78.445}
-  m_SizeDelta: {x: 350, y: 157}
+  m_AnchoredPosition: {x: 50, y: 78}
+  m_SizeDelta: {x: 500, y: 160}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1098468715
 MonoBehaviour:
@@ -19266,7 +19267,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -164.3, y: -234.8}
+  m_AnchoredPosition: {x: -114.3, y: -234.8}
   m_SizeDelta: {x: 310, y: 71}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1501478795
@@ -20166,7 +20167,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 164.3, y: -234.8}
+  m_AnchoredPosition: {x: 214.3, y: -234.8}
   m_SizeDelta: {x: 310, y: 71}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1583306364
@@ -20717,7 +20718,7 @@ GameObject:
   - component: {fileID: 1608016339}
   m_Layer: 5
   m_Name: Search
-  m_TagString: Untagged
+  m_TagString: Panel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22056,7 +22057,7 @@ GameObject:
   - component: {fileID: 1712008880}
   m_Layer: 5
   m_Name: PanelLoot
-  m_TagString: Untagged
+  m_TagString: Panel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23637,7 +23638,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -4, y: -234.8}
+  m_AnchoredPosition: {x: 46, y: -234.8}
   m_SizeDelta: {x: 200, y: 71}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1816516043
@@ -28860,7 +28861,7 @@ MonoBehaviour:
   - {fileID: 1507233806}
   - {fileID: 1990048051}
   - {fileID: 37546831}
-  - {fileID: 952110003}
+  - {fileID: 1633035833}
   - {fileID: 185971235}
   DataLootToTranslate:
   - {fileID: 11400000, guid: 6905f3c66da3340428719e46b72cd1f6, type: 2}

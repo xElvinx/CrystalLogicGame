@@ -34,7 +34,7 @@ public class Movement : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Mouse0) &&
             (nowPos.x < scale.x + lossyScale.x && nowPos.x > scale.x - lossyScale.x) &&
-            (nowPos.y < scale.y + lossyScale.y && nowPos.y > scale.y - lossyScale.y))
+            (nowPos.y < scale.y + lossyScale.y && nowPos.y > scale.y - lossyScale.y) && scene.moveable)
         {
 
             nowPos = cam.ScreenToWorldPoint(nowPos);
@@ -44,7 +44,7 @@ public class Movement : MonoBehaviour
             transform.position = new Vector3(nowPosX, nowPosY);
 
             collider = GetCollider();
-            if (collider != null && transform.position.x - oldPos.x < 300f)
+            if (collider != null && Mathf.Abs(transform.position.x - oldPos.x) < 300f)
             {
                 int countChild = collider.gameObject.transform.childCount;
 
@@ -58,7 +58,7 @@ public class Movement : MonoBehaviour
                 oldCollider = null;
             }
 
-        } else if (Physics.CheckSphere(transform.position, radius, layerMask) && Input.GetMouseButtonUp(0) && transform.position.x - oldPos.x < 250f) 
+        } else if (Physics.CheckSphere(transform.position, radius, layerMask) && Input.GetMouseButtonUp(0) && Mathf.Abs(transform.position.x - oldPos.x) < 300f) 
         {
             collider = GetCollider();
 

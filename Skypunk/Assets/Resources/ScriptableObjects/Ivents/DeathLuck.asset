@@ -12,14 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91c5b2106a547384ca9631fa47fad560, type: 3}
   m_Name: DeathLuck
   m_EditorClassIdentifier: 
-  TextHeader: Death Luck
+  TextHeader: DEAD LUCK
   Text: The screams of the vultures and the smell of decaying flesh led you to a
     mighty tree with three corpses hanging from its branches.
   VarA: Pass it by
-  TextA: Death Luck A
-  dataLootA: {fileID: 11400000, guid: f03512c1ebcff5945b770932c283755c, type: 2}
+  TextA: You decide to leave the place faster considering it extremely dangerous
+  dataLootA: {fileID: 0}
   countA: 0
   VarB: Bury corpses
-  TextB: Death Luck B
+  TextB: A piece of paper with the designation of an abandoned station fell out of
+    the pocket of one of corpses when you removed (Fuel +2).
   dataLootB: {fileID: 0}
   countB: 0

@@ -11,6 +11,7 @@ public class SceneController : MonoBehaviour
     public int fuel = 15;
     public int maxFuel = 20;
     public int money = 0;
+    public bool moveable = true;
 
     public float health = 15f;
     [SerializeField] private Text healthText;
@@ -28,6 +29,10 @@ public class SceneController : MonoBehaviour
             UIButtons uIButtons = new UIButtons();
             uIButtons.Restart();
         }
+        if (GameObject.FindGameObjectsWithTag("Panel").Length == 0)
+            moveable = true;
+        else
+            moveable = false;
 
         healthText.text = Convert.ToString(health);
         ironText.text = Convert.ToString(iron);
