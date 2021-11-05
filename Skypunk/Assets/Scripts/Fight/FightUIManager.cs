@@ -45,7 +45,6 @@ public class FightUIManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha1)) 
         {
             AddPoint(1);
-
         } 
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
