@@ -9,14 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f78a0b84f77d8b9428b25cecdfb2b97f, type: 3}
-  m_Name: Courier
+  m_Script: {fileID: 11500000, guid: cc990bcc73bc22e43963f90579a3ddfb, type: 3}
+  m_Name: Knife
   m_EditorClassIdentifier: 
-  card: 4
-  minHealth: 0
-  maxHealth: 0
-  minDamage: 0
-  maxDamage: 0
-  IventText: 
-  IventHeader: 
-  img: {fileID: 0}
+  img: {fileID: 21300000, guid: 05670d51f3f20e7438e712e4ad18a17f, type: 3}
+  Name: KNIFE
+  audio: {fileID: 0}

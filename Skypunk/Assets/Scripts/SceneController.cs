@@ -76,6 +76,10 @@ public class SceneController : MonoBehaviour
                 Ivent.GetComponent<Ivent>().Ivents = card.GetComponent<Card>().Ivent;
                 break;
 
+            case DataCard.classCard.Baloon:
+                card.GetComponent<Card>().GetLootBaloon();
+                break;
+
             case DataCard.classCard.Fuel:
                 if (fuel < maxFuel)
                     fuel = card.GetComponent<Card>().GetFuel(fuel);

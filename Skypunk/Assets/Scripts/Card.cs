@@ -43,10 +43,11 @@ public class Card : MonoBehaviour
 
     public Dictionary<string, int> GetLoot(Dictionary<string, int> list)
     {
-        if (Random.Range(0, 100) < 50)
+        if (Random.Range(0, 100) < 80)
         {
             search.GetComponent<Search>().Restart();
             search.SetActive(true);
+            search.transform.GetChild(0).gameObject.SetActive(true);
 
         } else if (Ivent != null)
         {
@@ -60,6 +61,14 @@ public class Card : MonoBehaviour
         }
 
         return list;
+    }
+
+    public void GetLootBaloon()
+    {
+        search.SetActive(true);
+        search.transform.GetChild(0).gameObject.SetActive(false);
+        search.transform.GetChild(1).gameObject.SetActive(true);
+        search.transform.GetChild(1).GetComponent<SearchBaloon>().Looting();
     }
 
     public int GetFuel(int fuel)

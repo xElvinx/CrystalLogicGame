@@ -23,6 +23,9 @@ public class FightUIManager : MonoBehaviour
     [SerializeField] private Text healthTextEnemy;
     [SerializeField] private Text damageTextEnemy;
 
+    [SerializeField] private ParticleSystem particleSystemPlayer;
+    [SerializeField] private ParticleSystem particleSystemEnemy;
+
     public Card card;
 
     private int phase = 1;
@@ -42,21 +45,26 @@ public class FightUIManager : MonoBehaviour
         healthTextEnemy.text = card.Health.ToString();
         damageTextEnemy.text = card.Damage.ToString();
 
-        if (Input.GetKeyDown(KeyCode.Alpha1)) 
+        if (Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Keypad1)) 
         {
             AddPoint(1);
         } 
-        else if (Input.GetKeyDown(KeyCode.Alpha2))
+        else if (Input.GetKeyDown(KeyCode.Alpha2) || Input.GetKeyDown(KeyCode.Keypad2))
         {
             AddPoint(2);
         } 
-        else if (Input.GetKeyDown(KeyCode.Alpha3))
+        else if (Input.GetKeyDown(KeyCode.Alpha3) || Input.GetKeyDown(KeyCode.Keypad3))
         {
             AddPoint(3);
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha4))
+        else if (Input.GetKeyDown(KeyCode.Alpha4) || Input.GetKeyDown(KeyCode.Keypad4))
         {
             AddPoint(4);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.Space))
+        {
+            AcceptPhase();
         }
 
         for (int i = 0; i < panelInfo.childCount; i++) 
@@ -135,6 +143,9 @@ public class FightUIManager : MonoBehaviour
                 panelShield.GetChild(i).GetChild(0).gameObject.SetActive(false);
                 panelShield.GetChild(i).GetChild(1).gameObject.SetActive(true);
             }
+
+            fight.playerParticle = particleSystemPlayer;
+            fight.enemyParticle = particleSystemEnemy;
 
             int healthEnemy = fight.Battle(controller, card);
             musicManager.PlayBattleMusic();

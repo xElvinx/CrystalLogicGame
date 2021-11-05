@@ -7,6 +7,9 @@ public class Fight : MonoBehaviour
 
     public List<int> pointsEnemy = new List<int>() { 0, 0, 0 };
 
+    public ParticleSystem playerParticle;
+    public ParticleSystem enemyParticle;
+
     public int Battle(SceneController controller, Card card)
     {
         for (var i = 0; i < pointsEnemy.Count; i++)
@@ -23,11 +26,13 @@ public class Fight : MonoBehaviour
                 else
                     controller.health--;
             }
+            playerParticle.Play();
         }
 
         if (pointsPlayer[0] != pointsEnemy[1] && pointsPlayer[0] != pointsEnemy[2] && pointsPlayer[0] != 0)
         {
             card.Health -= controller.damage;
+            enemyParticle.Play();
         }
 
         return card.Health;

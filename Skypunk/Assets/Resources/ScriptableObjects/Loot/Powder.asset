@@ -9,12 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f78a0b84f77d8b9428b25cecdfb2b97f, type: 3}
-  m_Name: Search
+  m_Script: {fileID: 11500000, guid: cc990bcc73bc22e43963f90579a3ddfb, type: 3}
+  m_Name: Powder
   m_EditorClassIdentifier: 
-  card: 2
-  minDamage: 0
-  maxDamage: 0
-  IventText: 
-  IventHeader: 
-  img: {fileID: 21300000, guid: 10afd90dbabbdad41837f1046cb931f8, type: 3}
+  img: {fileID: 21300000, guid: 645c5edfbdd144f47829c8990c525234, type: 3}
+  Name: POWDER
+  audio: {fileID: 0}
