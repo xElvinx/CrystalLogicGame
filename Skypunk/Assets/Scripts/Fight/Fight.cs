@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.ParticleSystem;
 
 public class Fight : MonoBehaviour
 {
@@ -26,12 +27,17 @@ public class Fight : MonoBehaviour
                 else
                     controller.health--;
             }
+
+            playerParticle.emission.SetBursts(new Burst[] { new Burst(0, (short)card.Damage) });
+
             playerParticle.Play();
         }
 
         if (pointsPlayer[0] != pointsEnemy[1] && pointsPlayer[0] != pointsEnemy[2] && pointsPlayer[0] != 0)
         {
             card.Health -= controller.damage;
+
+            enemyParticle.emission.SetBursts(new Burst[] { new Burst(0, (short)controller.damage) });
             enemyParticle.Play();
         }
 

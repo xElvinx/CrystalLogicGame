@@ -3,29 +3,69 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Assets.SimpleLocalization;
+using static PlayerStatic;
 
 public class MultiLanguage : MonoBehaviour
 {
+    [SerializeField] private Color activeColor;
+    [SerializeField] private Color nonActiveColor;
+
+    [SerializeField] private GameObject ruBtn;
+    [SerializeField] private GameObject enBtn;
+
     public Text[] textToTranslate;
     public DataLoot[] DataLootToTranslate;
     public DataIvent[] DataIventToTranslate;
     private void Start()
     {
-        //LocalizationManager.Read();
-
-        switch (Application.systemLanguage)
+        if (PlayerStatic.lang == "")
         {
-            case SystemLanguage.English:
+            switch (Application.systemLanguage)
+            {
+                case SystemLanguage.English:
+                    PlayerStatic.lang = "English";
+                    break;
+
+                case SystemLanguage.Russian:
+                    PlayerStatic.lang = "Russian";
+                    break;
+            }
+        }
+
+        switch (PlayerStatic.lang)
+        {
+            case "English":
                 Language("English");
+                enBtn.GetComponent<Image>().color = activeColor;
+                ruBtn.GetComponent<Image>().color = nonActiveColor;
                 break;
-            case SystemLanguage.Russian:
+            case "Russian":
                 Language("Russian");
+                enBtn.GetComponent<Image>().color = nonActiveColor;
+                ruBtn.GetComponent<Image>().color = activeColor;
                 break;
         }
     }
 
     public void Language(string language)
     {
+
+        switch (language)
+        {
+            case "English":
+                PlayerStatic.lang = "English";
+                enBtn.GetComponent<Image>().color = activeColor;
+                ruBtn.GetComponent<Image>().color = nonActiveColor;
+                break;
+
+            case "Russian":
+                PlayerStatic.lang = "Russian";
+                enBtn.GetComponent<Image>().color = nonActiveColor;
+                ruBtn.GetComponent<Image>().color = activeColor;
+                break;
+
+        }
+
         LocalizationManager.Language = language;
 
         // Panel-PanelOption

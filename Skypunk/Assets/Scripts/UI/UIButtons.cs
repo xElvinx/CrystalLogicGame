@@ -16,6 +16,13 @@ public class UIButtons : MonoBehaviour
 
     public void Restart()
     {
+        PlayerStatic.lootList = new Dictionary<string, int>();
+        PlayerStatic.countLvl = new List<int>();
+
+        PlayerStatic.fuel = 15;
+        PlayerStatic.health = 15f;
+        PlayerStatic.iron = 5f;
+
         SceneManager.LoadScene("1");
     }
 
@@ -30,7 +37,8 @@ public class UIButtons : MonoBehaviour
     {
         panelOption.parent.gameObject.SetActive(true);
         panelOption.gameObject.SetActive(true);
-        panelMap.gameObject.SetActive(false);
+        if (panelMap != null)
+            panelMap.gameObject.SetActive(false);
     }
 
     public void OpenPanel(GameObject panel)

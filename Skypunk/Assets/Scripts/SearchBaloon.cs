@@ -9,6 +9,7 @@ public class SearchBaloon : MonoBehaviour
 
     private List<Item> listItem = new List<Item>();
     private DataLoot dataLoot;
+    private int countLoot;
 
     private void Restart()
     {
@@ -23,11 +24,24 @@ public class SearchBaloon : MonoBehaviour
         }
     }
 
+    public void Reward()
+    {
+        transform.gameObject.SetActive(true);
+        transform.parent.gameObject.SetActive(true);
+        Looting();
+        for (int i = 0; i < countLoot; i++)
+        {
+            if (panelLoot.GetChild(i).GetChild(0).gameObject.activeSelf)
+            {
+                SelectLoot(panelLoot.GetChild(i));
+            }
+        }
+    }
+
     public void Looting()
     {
         Restart();
-        int countLoot = Random.Range(0, 7);
-        Debug.Log(countLoot);
+        countLoot = Random.Range(1, 7);
 
         for (int i = 0; i < countLoot; i++)
         {
@@ -48,13 +62,20 @@ public class SearchBaloon : MonoBehaviour
     {
         if (!btn.GetChild(3).gameObject.activeSelf)
         {
-            listItem.Add(new Item
+            DataLoot[] listLoot = Resources.LoadAll<DataLoot>("ScriptableObjects/Loot");
+            foreach (var i in listLoot)
             {
-                index = btn.GetSiblingIndex(),
-                nameItem = btn.GetChild(1).GetComponent<Text>().text,
-                countItem = System.Convert.ToInt32(btn.GetChild(2).GetComponent<Text>().text)
-            });
-
+                if (i.Name == btn.GetChild(1).GetComponent<Text>().text)
+                {
+                    listItem.Add(new Item
+                    {
+                        index = btn.GetSiblingIndex(),
+                        nameItem = i.name,
+                        countItem = System.Convert.ToInt32(btn.GetChild(2).GetComponent<Text>().text)
+                    });
+                    Debug.Log(System.Convert.ToInt32(btn.GetChild(2).GetComponent<Text>().text));
+                }
+            }
             btn.GetChild(3).gameObject.SetActive(true);
         }
     }
@@ -75,6 +96,8 @@ public class SearchBaloon : MonoBehaviour
                 }
             }
         }
+        listItem = new List<Item>();
+
         transform.gameObject.SetActive(false);
         transform.parent.gameObject.SetActive(false);
     }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public static class PlayerStatic
 {
+    public static string lang = "";
     public static Dictionary<string, int> lootList = new Dictionary<string, int>();
     public static List<int> countLvl = new List<int>();
 

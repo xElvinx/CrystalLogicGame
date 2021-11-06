@@ -12,6 +12,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private AudioSource audioListener;
     [SerializeField] private AudioClip audioOpen;
 
+    public Transform dropBtn;
+
     // Update is called once per frame
     void Update()
     {
@@ -35,6 +37,9 @@ public class UIManager : MonoBehaviour
 
     public void OpenPanelLoot()
     {
+        dropBtn.GetChild(0).gameObject.SetActive(true);
+        dropBtn.GetChild(1).gameObject.SetActive(false);
+
         int j = 0;
         panelLoot.gameObject.SetActive(true);
         Transform panel = GameObject.FindGameObjectWithTag("LootList").transform;
@@ -49,8 +54,8 @@ public class UIManager : MonoBehaviour
             if (i.Value > 0)
             {
                 DataLoot dataLoot = Resources.Load<DataLoot>("ScriptableObjects/Loot/" + i.Key);
-                
-                panel.GetChild(j).GetChild(0).GetComponent<Text>().text = i.Key;
+
+                panel.GetChild(j).GetChild(0).GetComponent<Text>().text = dataLoot.Name;//i.Key;
                 panel.GetChild(j).GetChild(1).GetComponent<Text>().text = i.Value.ToString();
 
                 Image lootImg = panel.GetChild(j).GetChild(2).GetComponent<Image>();
@@ -102,7 +107,7 @@ public class UIManager : MonoBehaviour
                 {
                     DataLoot dataLoot = Resources.Load<DataLoot>("ScriptableObjects/Loot/" + i.Key);
 
-                    panel.GetChild(j).GetChild(0).GetComponent<Text>().text = i.Key;
+                    panel.GetChild(j).GetChild(0).GetComponent<Text>().text = dataLoot.Name; //i.Key;
                     panel.GetChild(j).GetChild(1).GetComponent<Text>().text = i.Value.ToString();
 
                     Image lootImg = panel.GetChild(j).GetChild(2).GetComponent<Image>();
