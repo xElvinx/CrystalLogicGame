@@ -3,29 +3,69 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Assets.SimpleLocalization;
+using static PlayerStatic;
 
 public class MultiLanguage : MonoBehaviour
 {
+    [SerializeField] private Color activeColor;
+    [SerializeField] private Color nonActiveColor;
+
+    [SerializeField] private GameObject ruBtn;
+    [SerializeField] private GameObject enBtn;
+
     public Text[] textToTranslate;
     public DataLoot[] DataLootToTranslate;
     public DataIvent[] DataIventToTranslate;
     private void Start()
     {
-        //LocalizationManager.Read();
-
-        switch (Application.systemLanguage)
+        if (PlayerStatic.lang == "")
         {
-            case SystemLanguage.English:
+            switch (Application.systemLanguage)
+            {
+                case SystemLanguage.English:
+                    PlayerStatic.lang = "English";
+                    break;
+
+                case SystemLanguage.Russian:
+                    PlayerStatic.lang = "Russian";
+                    break;
+            }
+        }
+
+        switch (PlayerStatic.lang)
+        {
+            case "English":
                 Language("English");
+                enBtn.GetComponent<Image>().color = activeColor;
+                ruBtn.GetComponent<Image>().color = nonActiveColor;
                 break;
-            case SystemLanguage.Russian:
+            case "Russian":
                 Language("Russian");
+                enBtn.GetComponent<Image>().color = nonActiveColor;
+                ruBtn.GetComponent<Image>().color = activeColor;
                 break;
         }
     }
 
     public void Language(string language)
     {
+
+        switch (language)
+        {
+            case "English":
+                PlayerStatic.lang = "English";
+                enBtn.GetComponent<Image>().color = activeColor;
+                ruBtn.GetComponent<Image>().color = nonActiveColor;
+                break;
+
+            case "Russian":
+                PlayerStatic.lang = "Russian";
+                enBtn.GetComponent<Image>().color = nonActiveColor;
+                ruBtn.GetComponent<Image>().color = activeColor;
+                break;
+
+        }
+
         LocalizationManager.Language = language;
 
         // Panel-PanelOption
@@ -65,15 +105,26 @@ public class MultiLanguage : MonoBehaviour
         textToTranslate[21].text = LocalizationManager.Localize("PanelInfoPhase1");
         textToTranslate[22].text = LocalizationManager.Localize("PanelInfoPhase2");
         textToTranslate[23].text = LocalizationManager.Localize("PanelInfoPhase3");
-        textToTranslate[24].text = LocalizationManager.Localize("PanelInputInfo1");
-        textToTranslate[25].text = LocalizationManager.Localize("PanelInputInfo2");
-        textToTranslate[26].text = LocalizationManager.Localize("PanelInputInfo3");
-        textToTranslate[27].text = LocalizationManager.Localize("PanelInputInfo4");
+        textToTranslate[24].text = LocalizationManager.Localize("PanelInfoPhase4");
+        textToTranslate[25].text = LocalizationManager.Localize("PanelInputInfo1");
+        textToTranslate[26].text = LocalizationManager.Localize("PanelInputInfo2");
+        textToTranslate[27].text = LocalizationManager.Localize("PanelInputInfo3");
+        textToTranslate[28].text = LocalizationManager.Localize("PanelInputInfo4");
 
         // Base
-        textToTranslate[28].text = LocalizationManager.Localize("BaseHeader");
-        textToTranslate[29].text = LocalizationManager.Localize("BaseInfo");
-        textToTranslate[30].text = LocalizationManager.Localize("BaseBtn");
+        textToTranslate[29].text = LocalizationManager.Localize("BaseHeader");
+        textToTranslate[30].text = LocalizationManager.Localize("BaseInfo");
+        textToTranslate[31].text = LocalizationManager.Localize("BaseBtn");
+
+        // Search Baloon
+        textToTranslate[32].text = LocalizationManager.Localize("BaloonHeader");
+        textToTranslate[33].text = LocalizationManager.Localize("BaloonBtn");
+
+        // Courier message
+        textToTranslate[34].text = LocalizationManager.Localize("PanelWarningHeader");
+        textToTranslate[35].text = LocalizationManager.Localize("PanelWarningYes");
+        textToTranslate[36].text = LocalizationManager.Localize("PanelWarningNo");
+        textToTranslate[37].text = LocalizationManager.Localize("CourierDeckSend");
 
         // Loot
         DataLootToTranslate[0].Name = LocalizationManager.Localize("LtChemicals");

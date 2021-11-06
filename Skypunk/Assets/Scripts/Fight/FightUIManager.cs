@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class FightUIManager : MonoBehaviour
@@ -26,6 +27,8 @@ public class FightUIManager : MonoBehaviour
     [SerializeField] private ParticleSystem particleSystemPlayer;
     [SerializeField] private ParticleSystem particleSystemEnemy;
 
+    [SerializeField] private SearchBaloon searchBaloon;
+
     public Card card;
 
     private int phase = 1;
@@ -34,6 +37,11 @@ public class FightUIManager : MonoBehaviour
     private void Start()
     {
         fight = new Fight();
+
+        for (int i = 0; i < panelShield.childCount; i++)
+        {
+            panelShield.GetChild(i).GetComponent<EventTrigger>().enabled = false;
+        }
     }
 
     void Update()
@@ -74,53 +82,57 @@ public class FightUIManager : MonoBehaviour
                 panelInfo.GetChild(i).GetComponent<Text>().color = activePhaseColor;
         }
 
-        if (phase < 3)
+        /*if (phase < 4)
         {
             btn.GetChild(0).GetComponent<Text>().text = "CONTINUE";
         } else
         {
-            btn.GetChild(0).GetComponent<Text>().text = "ACCEPT";
-        }
+            btn.GetChild(0).GetComponent<Text>().text = "DONE";
+        }*/
 
     }
 
-    private void AddPoint(int point)
+    public void AddPoint(int point)
     {
-        fight.pointsPlayer[phase - 1] = point;
-        if (phase == 1)
+        if (phase < 4)
         {
-            for (var i = 0; i < panelAttack.childCount; i++)
+            fight.pointsPlayer[phase - 1] = point;
+            if (phase == 1)
             {
-                if (i == point - 1)
+                for (var i = 0; i < panelAttack.childCount; i++)
                 {
-                    panelAttack.GetChild(i).GetChild(0).gameObject.SetActive(true);
-                    panelAttack.GetChild(i).GetChild(1).gameObject.SetActive(false);
-                }
-                else
-                {
-                    panelAttack.GetChild(i).GetChild(0).gameObject.SetActive(false);
-                    panelAttack.GetChild(i).GetChild(1).gameObject.SetActive(true);
+                    if (i == point - 1)
+                    {
+                        panelAttack.GetChild(i).GetChild(0).gameObject.SetActive(true);
+                        panelAttack.GetChild(i).GetChild(1).gameObject.SetActive(false);
+                    }
+                    else
+                    {
+                        panelAttack.GetChild(i).GetChild(0).gameObject.SetActive(false);
+                        panelAttack.GetChild(i).GetChild(1).gameObject.SetActive(true);
+                    }
                 }
             }
-        } else
-        {
-            for (var i = 0; i < panelShield.childCount; i++)
+            else
             {
-                if (i == point - 1)
+                for (var i = 0; i < panelShield.childCount; i++)
                 {
-                    panelShield.GetChild(i).GetChild(0).gameObject.SetActive(true);
-                    panelShield.GetChild(i).GetChild(1).gameObject.SetActive(false);
-                }
-                else
-                {
-                    panelShield.GetChild(i).GetChild(0).gameObject.SetActive(false);
-                    panelShield.GetChild(i).GetChild(1).gameObject.SetActive(true);
-                }
+                    if (i == point - 1)
+                    {
+                        panelShield.GetChild(i).GetChild(0).gameObject.SetActive(true);
+                        panelShield.GetChild(i).GetChild(1).gameObject.SetActive(false);
+                    }
+                    else
+                    {
+                        panelShield.GetChild(i).GetChild(0).gameObject.SetActive(false);
+                        panelShield.GetChild(i).GetChild(1).gameObject.SetActive(true);
+                    }
 
-                if (phase == 3)
-                {
-                    panelShield.GetChild(fight.pointsPlayer[1] - 1).GetChild(0).gameObject.SetActive(true);
-                    panelShield.GetChild(fight.pointsPlayer[1] - 1).GetChild(1).gameObject.SetActive(false);
+                    if (phase == 3)
+                    {
+                        panelShield.GetChild(fight.pointsPlayer[1] - 1).GetChild(0).gameObject.SetActive(true);
+                        panelShield.GetChild(fight.pointsPlayer[1] - 1).GetChild(1).gameObject.SetActive(false);
+                    }
                 }
             }
         }
@@ -128,8 +140,23 @@ public class FightUIManager : MonoBehaviour
 
     public void AcceptPhase()
     {
-        if (phase < 3)
+        if (phase < 4)
         {
+            if (phase == 1)
+            {
+                for (var i = 0; i < panelAttack.childCount; i++)
+                {
+                    panelAttack.GetChild(i).GetComponent<EventTrigger>().enabled = false;
+                    panelShield.GetChild(i).GetComponent<EventTrigger>().enabled = true;
+                }
+            } else if (phase == 3)
+            {
+                for (var i = 0; i < panelShield.childCount; i++)
+                {
+                    panelShield.GetChild(i).GetComponent<EventTrigger>().enabled = false;
+                }
+            }
+
             phase++;
         }
         else
@@ -137,6 +164,7 @@ public class FightUIManager : MonoBehaviour
             phase = 1;
             for (var i = 0; i < panelAttack.childCount; i++)
             {
+                panelAttack.GetChild(i).GetComponent<EventTrigger>().enabled = true;
                 panelAttack.GetChild(i).GetChild(0).gameObject.SetActive(false);
                 panelAttack.GetChild(i).GetChild(1).gameObject.SetActive(true);
 
@@ -160,5 +188,6 @@ public class FightUIManager : MonoBehaviour
         transform.gameObject.SetActive(false);
         controller.transform.GetChild(0).gameObject.SetActive(true);
         controller.transform.GetChild(1).gameObject.SetActive(true);
+        searchBaloon.Reward();
     }
 }

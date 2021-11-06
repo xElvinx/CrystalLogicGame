@@ -22,13 +22,16 @@ public class LvlGeneration : MonoBehaviour
 
         foreach (var i in PlayerStatic.countLvl)
         {
-            transform.GetChild(i).GetComponent<Button>().enabled = false;
-            transform.GetChild(i).GetComponent<Image>().sprite = lockImg;
+            transform.GetChild(i - 1).GetComponent<Button>().enabled = false;
+            transform.GetChild(i - 1).GetComponent<Image>().sprite = lockImg;
         }
+
+        transform.GetChild(SceneManager.GetActiveScene().buildIndex - 1).GetComponent<Button>().enabled = false;
+        transform.GetChild(SceneManager.GetActiveScene().buildIndex - 1).GetComponent<Image>().sprite = lockImg;
     }
     public void LoadNewLevel(int sceneIndex)
     {
-        PlayerStatic.countLvl.Add(sceneIndex);
+        PlayerStatic.countLvl.Add(SceneManager.GetActiveScene().buildIndex);
 
         if (!PlayerStatic.visitBase)
         {
