@@ -65,15 +65,26 @@ public class MultiLanguage : MonoBehaviour
         textToTranslate[21].text = LocalizationManager.Localize("PanelInfoPhase1");
         textToTranslate[22].text = LocalizationManager.Localize("PanelInfoPhase2");
         textToTranslate[23].text = LocalizationManager.Localize("PanelInfoPhase3");
-        textToTranslate[24].text = LocalizationManager.Localize("PanelInputInfo1");
-        textToTranslate[25].text = LocalizationManager.Localize("PanelInputInfo2");
-        textToTranslate[26].text = LocalizationManager.Localize("PanelInputInfo3");
-        textToTranslate[27].text = LocalizationManager.Localize("PanelInputInfo4");
+        textToTranslate[24].text = LocalizationManager.Localize("PanelInfoPhase4");
+        textToTranslate[25].text = LocalizationManager.Localize("PanelInputInfo1");
+        textToTranslate[26].text = LocalizationManager.Localize("PanelInputInfo2");
+        textToTranslate[27].text = LocalizationManager.Localize("PanelInputInfo3");
+        textToTranslate[28].text = LocalizationManager.Localize("PanelInputInfo4");
 
         // Base
-        textToTranslate[28].text = LocalizationManager.Localize("BaseHeader");
-        textToTranslate[29].text = LocalizationManager.Localize("BaseInfo");
-        textToTranslate[30].text = LocalizationManager.Localize("BaseBtn");
+        textToTranslate[29].text = LocalizationManager.Localize("BaseHeader");
+        textToTranslate[30].text = LocalizationManager.Localize("BaseInfo");
+        textToTranslate[31].text = LocalizationManager.Localize("BaseBtn");
+
+        // Search Baloon
+        textToTranslate[32].text = LocalizationManager.Localize("BaloonHeader");
+        textToTranslate[33].text = LocalizationManager.Localize("BaloonBtn");
+
+        // Courier message
+        textToTranslate[34].text = LocalizationManager.Localize("PanelWarningHeader");
+        textToTranslate[35].text = LocalizationManager.Localize("PanelWarningYes");
+        textToTranslate[36].text = LocalizationManager.Localize("PanelWarningNo");
+        textToTranslate[37].text = LocalizationManager.Localize("CourierDeckSend");
 
         // Loot
         DataLootToTranslate[0].Name = LocalizationManager.Localize("LtChemicals");
